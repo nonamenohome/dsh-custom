@@ -1,0 +1,644 @@
+.liang-skin-backdrop {
+  position: fixed;
+  z-index: 0;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  background: var(--liang-page, transparent);
+  opacity: 0;
+  transition: opacity 220ms ease, background-color 180ms linear;
+}
+
+body[data-liang-skin="on"] .liang-skin-backdrop {
+  opacity: 1;
+}
+
+.liang-skin-backdrop video,
+.liang-skin-backdrop img {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  display: block;
+  width: min(42vw, 720px);
+  height: 100vh;
+  object-fit: cover;
+  object-position: 50% 42%;
+  opacity: var(--liang-portrait-opacity, 0.45);
+  transform: translateY(-50%);
+  filter: none;
+  mask-image: linear-gradient(90deg, transparent 0%, rgb(0 0 0 / 20%) 10%, black 30%, black 100%);
+  transition: filter 180ms linear;
+}
+
+.liang-skin-backdrop img {
+  display: none;
+}
+
+.liang-skin-backdrop[data-media="sequence"] video,
+.liang-skin-backdrop[data-media="sequence"] .liang-skin-poster {
+  display: none;
+}
+
+.liang-skin-backdrop[data-media="sequence"] .liang-skin-sequence-frame {
+  display: block;
+  opacity: var(--liang-portrait-opacity, 0.82);
+}
+
+.liang-skin-backdrop[data-media="video"] .liang-skin-sequence-frame,
+.liang-skin-backdrop[data-media="video"] .liang-skin-poster {
+  display: none;
+}
+
+.liang-skin-backdrop[data-media="poster"] video,
+.liang-skin-backdrop[data-media="poster"] .liang-skin-sequence-frame {
+  display: none;
+}
+
+.liang-skin-backdrop[data-media="poster"] .liang-skin-poster {
+  display: block;
+}
+
+.liang-skin-backdrop[data-media="color"] video,
+.liang-skin-backdrop[data-media="color"] img {
+  display: none;
+}
+
+.liang-skin-backdrop::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+  background: linear-gradient(90deg, var(--liang-page, transparent) 0 28%, transparent 57% 100%);
+}
+
+body[data-liang-skin="on"] {
+  --dsw-alias-bg-base: var(--liang-bg-base) !important;
+  --dsw-alias-bg-layer-1: var(--liang-layer-1) !important;
+  --dsw-alias-bg-layer-2: var(--liang-layer-2) !important;
+  --dsw-alias-bg-layer-3: var(--liang-layer-3) !important;
+  --dsw-specific-sidebar-fill: var(--liang-sidebar) !important;
+  --dsw-alias-label-primary: var(--liang-ink) !important;
+  --dsw-alias-label-primary-dimmed: var(--liang-ink) !important;
+  --dsw-alias-label-secondary: var(--liang-secondary) !important;
+  --dsw-alias-label-tertiary: var(--liang-tertiary) !important;
+  --dsw-alias-label-caption: var(--liang-tertiary) !important;
+  --dsw-alias-border-l1: var(--liang-border) !important;
+  --dsw-alias-border-l2-darkmode-thin: var(--liang-border) !important;
+  --dsw-alias-border-l2: var(--liang-border) !important;
+  --dsw-alias-border-l3: var(--liang-border) !important;
+  --dsw-alias-button-primary-fill: var(--liang-accent) !important;
+  --dsw-alias-button-primary-hover: var(--liang-accent-hover) !important;
+  --dsw-alias-button-info-fill: var(--liang-accent) !important;
+  --dsw-alias-button-info-hover: var(--liang-accent-hover) !important;
+  --dsw-alias-state-business-primary: var(--liang-accent) !important;
+  --dsw-alias-interactive-bg-hover: var(--liang-hover) !important;
+  --dsw-alias-interactive-bg-active: var(--liang-hover) !important;
+  --dsw-alias-button-elevated-fill: var(--liang-layer-1) !important;
+  --dsw-alias-button-floating-fill: var(--liang-layer-2) !important;
+  --dsw-alias-button-floating-hover: var(--liang-layer-3) !important;
+  --dsw-alias-interactive-bg-hover-solid: var(--liang-layer-2) !important;
+  --dsw-specific-bubble: var(--liang-layer-2) !important;
+  --dsw-specific-input-major: var(--liang-layer-1) !important;
+  --dsw-specific-menu: var(--liang-layer-3) !important;
+  --dsw-specific-selector: var(--liang-layer-2) !important;
+  --dsw-alias-markdown-citation: var(--liang-layer-2) !important;
+  --dsw-alias-markdown-code-block-banner: var(--liang-layer-1) !important;
+  --dsw-alias-markdown-code-block: var(--liang-layer-1) !important;
+  --dsw-alias-markdown-code-segment-selected: var(--liang-layer-2) !important;
+  --dsw-alias-markdown-code-segment-unselected: var(--liang-layer-1) !important;
+  --dsw-alias-markdown-inline-code: var(--liang-layer-2) !important;
+  --dsw-alias-markdown-placeholder: var(--liang-layer-1) !important;
+  --dsw-alias-markdown-tag: var(--liang-layer-2) !important;
+  background: var(--liang-page) !important;
+}
+
+body[data-liang-skin="on"]:is(
+  [data-liang-stage="0"],
+  [data-liang-stage="1"],
+  [data-liang-stage="2"],
+  [data-liang-stage="3"]
+) {
+  --dsw-alias-brand-primary-new-colorprimary-new-color: rgb(65 118 230) !important;
+  --dsw-alias-brand-primary: rgb(15 17 21) !important;
+  --dsw-alias-brand-text: rgb(15 17 21) !important;
+  --dsw-alias-button-primary-fill: rgb(15 17 21) !important;
+  --dsw-alias-button-primary-hover: rgb(53 54 56) !important;
+  --dsw-alias-button-info-fill: rgb(65 118 230) !important;
+  --dsw-alias-button-info-hover: rgb(103 158 254) !important;
+  --dsw-alias-state-business-primary: rgb(65 118 230) !important;
+  --dsw-alias-label-primary-inverted: rgb(249 250 251) !important;
+  --dsw-alias-button-elevated-fill: rgb(255 255 255) !important;
+  --dsw-alias-button-floating-fill: rgb(255 255 255) !important;
+  --dsw-alias-button-floating-hover: rgb(241 243 245) !important;
+  --dsw-alias-interactive-bg-hover-solid: rgb(241 243 245) !important;
+  --dsw-specific-bubble: rgb(237 243 254) !important;
+  --dsw-specific-input-major: rgb(255 255 255) !important;
+  --dsw-specific-menu: rgb(255 255 255) !important;
+  --dsw-specific-selector: rgb(245 246 247) !important;
+}
+
+body[data-liang-skin="on"][data-liang-stage="5"] {
+  --dsw-alias-brand-primary-new-colorprimary-new-color: #c19a49 !important;
+  --dsw-alias-brand-primary: #c19a49 !important;
+  --dsw-alias-brand-text: #d5b56e !important;
+  --dsw-alias-button-info-fill: #c19a49 !important;
+  --dsw-alias-button-info-hover: #d5b56e !important;
+  --dsw-alias-state-business-primary: #c19a49 !important;
+  --dsw-alias-bg-module-platform: var(--liang-layer-3) !important;
+  --dsw-specific-sidebar-nav-item-active: var(--liang-layer-3) !important;
+  --dsw-specific-sidebar-nav-item-hover: var(--liang-hover) !important;
+}
+
+/* The low-intensity skin is light by default, but it must not turn a dark
+   Harness document into a light surface. Keep the skin's portrait progression
+   while switching the shared UI layers back to a readable charcoal palette. */
+body[data-liang-skin="on"][data-ds-dark-theme]:is(
+  [data-liang-stage="0"],
+  [data-liang-stage="1"],
+  [data-liang-stage="2"],
+  [data-liang-stage="3"]
+) {
+  --liang-page: rgb(17 17 17) !important;
+  --liang-bg-base: rgb(17 17 17 / 42%) !important;
+  --liang-layer-1: rgb(30 27 25 / 94%) !important;
+  --liang-layer-2: rgb(41 35 30 / 96%) !important;
+  --liang-layer-3: rgb(41 35 30 / 99%) !important;
+  --liang-sidebar: rgb(23 20 18 / 96%) !important;
+  --liang-ink: rgb(244 241 232) !important;
+  --liang-secondary: rgb(184 180 169) !important;
+  --liang-tertiary: rgb(137 134 126) !important;
+  --liang-border: rgb(244 241 232 / 15%) !important;
+  --liang-hover: rgb(244 241 232 / 9%) !important;
+  --dsw-alias-brand-primary: var(--liang-accent) !important;
+  --dsw-alias-brand-text: var(--liang-accent) !important;
+  --dsw-alias-button-primary-fill: var(--liang-accent) !important;
+  --dsw-alias-button-primary-hover: var(--liang-accent-hover) !important;
+  --dsw-alias-button-info-fill: var(--liang-accent) !important;
+  --dsw-alias-button-info-hover: var(--liang-accent-hover) !important;
+  --dsw-alias-state-business-primary: var(--liang-accent) !important;
+  --dsw-alias-button-elevated-fill: var(--liang-layer-1) !important;
+  --dsw-alias-button-floating-fill: var(--liang-layer-2) !important;
+  --dsw-alias-button-floating-hover: var(--liang-layer-3) !important;
+  --dsw-alias-interactive-bg-hover-solid: var(--liang-layer-2) !important;
+  --dsw-specific-bubble: var(--liang-layer-2) !important;
+  --dsw-specific-input-major: var(--liang-layer-1) !important;
+  --dsw-specific-menu: var(--liang-layer-3) !important;
+  --dsw-specific-selector: var(--liang-layer-2) !important;
+  background: var(--liang-page) !important;
+}
+
+body[data-liang-skin="on"][data-ds-dark-theme]:is(
+  [data-liang-stage="0"],
+  [data-liang-stage="1"],
+  [data-liang-stage="2"],
+  [data-liang-stage="3"]
+) .liang-skin-backdrop {
+  background: var(--liang-page) !important;
+}
+
+body[data-liang-skin="on"][data-ds-dark-theme]:is(
+  [data-liang-stage="0"],
+  [data-liang-stage="1"],
+  [data-liang-stage="2"],
+  [data-liang-stage="3"]
+) .liang-skin-backdrop::after {
+  background: linear-gradient(90deg, var(--liang-page) 0 28%, transparent 57% 100%);
+}
+
+/* The host renders the running-turn label as a clipped blue text gradient.
+   Retarget only that gradient's color tokens in the custom dark skin; keep
+   the host's text clipping and shimmer behavior, and leave light mode alone. */
+body[data-liang-skin="on"][data-liang-stage="5"] [class*="_turnStatus"] {
+  --dsw-static-deepseek-500: #c19a49 !important;
+  --dsw-static-deepseek-200: #d5b56e !important;
+}
+
+body[data-liang-skin="on"][data-liang-stage="5"] [class*="_turnStatusClock"] {
+  color: #c19a49 !important;
+  -webkit-text-fill-color: #c19a49 !important;
+}
+
+/* Preserve the wordmark badge contrast in the low-intensity shell. */
+body[data-liang-skin="on"]:is(
+  [data-liang-stage="0"],
+  [data-liang-stage="1"],
+  [data-liang-stage="2"],
+  [data-liang-stage="3"]
+) button[aria-label="新建会话"] svg[viewBox="0 0 182 24"] > rect[width="52"] {
+  fill: rgb(15 17 21) !important;
+}
+
+body[data-liang-skin="on"]:is(
+  [data-liang-stage="0"],
+  [data-liang-stage="1"],
+  [data-liang-stage="2"],
+  [data-liang-stage="3"]
+) button[aria-label="新建会话"] svg[viewBox="0 0 182 24"] > g[clip-path*="badge"] path {
+  fill: rgb(249 250 251) !important;
+}
+
+body[data-liang-skin="on"][data-liang-stage="5"] button[aria-label="新建会话"] svg[viewBox="0 0 182 24"] > rect[width="52"] {
+  fill: #c19a49 !important;
+}
+
+body[data-liang-skin="on"][data-liang-stage="5"] button[aria-label="新建会话"] svg[viewBox="0 0 182 24"] > g[clip-path*="badge"] path {
+  fill: #171816 !important;
+}
+
+body[data-liang-skin="on"][data-liang-stage="5"] [aria-label^="选择模型"] > span:nth-of-type(2) {
+  color: #d5b56e !important;
+}
+
+body[data-liang-skin="on"][data-liang-stage="5"] [class*="heroGlow"] ellipse {
+  fill: #c19a49 !important;
+  fill-opacity: 0.16 !important;
+}
+
+body[data-liang-skin="on"][data-liang-stage="5"] span[class*="_previewBadge"] {
+  color: #171816 !important;
+  background: #c19a49 !important;
+}
+
+body[data-liang-skin="on"][data-liang-stage="5"] button[aria-label="发送消息"] {
+  color: #171816 !important;
+}
+
+body[data-liang-skin="on"][data-liang-stage="5"] button[aria-label="发送消息"]:disabled {
+  opacity: 0.62;
+}
+
+body[data-liang-skin="on"]:is(
+  [data-liang-stage="0"],
+  [data-liang-stage="1"],
+  [data-liang-stage="2"],
+  [data-liang-stage="3"]
+) button[aria-label="发送消息"] {
+  color: #fff !important;
+}
+
+body[data-liang-skin="on"]:is(
+  [data-liang-stage="0"],
+  [data-liang-stage="1"],
+  [data-liang-stage="2"],
+  [data-liang-stage="3"]
+) button[aria-label="发送消息"]:disabled {
+  color: rgb(255 255 255 / 92%) !important;
+  background: rgb(65 118 230 / 42%) !important;
+  opacity: 1;
+}
+
+body[data-liang-skin="on"] > #root {
+  position: relative;
+  z-index: 1;
+  background: transparent !important;
+}
+
+body[data-liang-skin="on"] button,
+body[data-liang-skin="on"] input,
+body[data-liang-skin="on"] textarea {
+  transition: color 160ms linear, background-color 160ms linear, border-color 160ms linear;
+}
+
+/* The composer card has a native theme-mode fill, so keep its surface and
+   readable ink aligned with the active Liang palette. */
+body[data-liang-skin="on"]:is(
+  [data-liang-stage="0"],
+  [data-liang-stage="1"],
+  [data-liang-stage="2"],
+  [data-liang-stage="3"]
+) [data-composer-card="true"] {
+  border-color: var(--liang-border) !important;
+  color: var(--liang-ink) !important;
+  background: var(--liang-layer-1) !important;
+  box-shadow: 0 8px 28px rgb(20 22 20 / 8%);
+}
+
+body[data-liang-skin="on"]:is(
+  [data-liang-stage="0"],
+  [data-liang-stage="1"],
+  [data-liang-stage="2"],
+  [data-liang-stage="3"]
+) [data-composer-card="true"] :is(textarea, button, [data-input-mirror="true"]) {
+  color: var(--liang-ink) !important;
+  caret-color: var(--liang-accent) !important;
+}
+
+body[data-liang-skin="on"]:is(
+  [data-liang-stage="0"],
+  [data-liang-stage="1"],
+  [data-liang-stage="2"],
+  [data-liang-stage="3"]
+) [data-composer-card="true"] textarea::placeholder {
+  color: var(--liang-tertiary) !important;
+  opacity: 1;
+}
+
+.liang-effort-control {
+  --liang-control-accent: var(--dsw-alias-brand-primary-new-colorprimary-new-color, #4176e6);
+  --liang-control-rail: var(--dsw-alias-border-l3, rgb(0 0 0 / 16%));
+  position: relative;
+  display: flex;
+  width: 124px;
+  height: 28px;
+  align-items: center;
+  margin: 0 3px;
+  overflow: visible;
+}
+
+body[data-liang-skin="on"] .liang-effort-control {
+  --liang-control-accent: var(--liang-secondary);
+  --liang-control-rail: color-mix(in srgb, var(--liang-secondary) 28%, transparent);
+}
+
+.liang-effort-control__ticks {
+  position: absolute;
+  z-index: 0;
+  inset: 0 10px;
+  pointer-events: none;
+}
+
+.liang-effort-control__ticks::before {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  left: 0;
+  height: 1px;
+  content: "";
+  background: var(--liang-control-rail);
+  transform: translateY(-50%);
+}
+
+.liang-effort-control__tooltip {
+  position: absolute;
+  z-index: 4;
+  bottom: calc(100% + 7px);
+  left: calc(10px + (100% - 20px) * var(--liang-slider-ratio));
+  min-width: max-content;
+  padding: 5px 8px;
+  border: 1px solid var(--liang-border, rgb(0 0 0 / 12%));
+  border-radius: 7px;
+  color: var(--liang-ink, #171816);
+  background: var(--liang-layer-1, #fff);
+  box-shadow: 0 5px 16px rgb(0 0 0 / 16%);
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 16px;
+  letter-spacing: 0.01em;
+  pointer-events: none;
+  transform: translateX(-50%);
+  white-space: nowrap;
+}
+
+.liang-effort-control__tooltip::after {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  width: 7px;
+  height: 7px;
+  content: "";
+  background: inherit;
+  transform: translate(-50%, -4px) rotate(45deg);
+}
+
+.liang-effort-control__tick {
+  position: absolute;
+  top: 50%;
+  width: 1px;
+  height: 7px;
+  background: var(--liang-control-accent);
+  opacity: 0.42;
+  transform: translate(-50%, -50%);
+}
+
+.liang-effort-control__range {
+  position: relative;
+  z-index: 1;
+  width: calc(100% - 7px);
+  height: 28px;
+  margin: 0 3.5px;
+  cursor: ew-resize;
+  appearance: none;
+  background: transparent;
+  touch-action: pan-y;
+}
+
+.liang-effort-control__range:disabled {
+  cursor: progress;
+  opacity: 0.58;
+}
+
+.liang-effort-control__range::-webkit-slider-runnable-track {
+  height: 1px;
+  border-radius: 1px;
+  background: transparent;
+}
+
+.liang-effort-control__range::-webkit-slider-thumb {
+  width: 13px;
+  height: 13px;
+  margin-top: -6px;
+  border: 1.5px solid color-mix(in srgb, var(--liang-control-accent) 72%, transparent);
+  border-radius: 50%;
+  appearance: none;
+  background: radial-gradient(circle, var(--liang-control-accent) 0 2px, color-mix(in srgb, var(--liang-control-accent) 22%, var(--dsw-alias-bg-layer-1, #fff)) 2.5px);
+  box-shadow: 0 1px 4px rgb(0 0 0 / 14%);
+}
+
+body[data-liang-skin="on"] .liang-effort-control__range::-webkit-slider-thumb {
+  width: 13px;
+  height: 13px;
+  margin-top: -6px;
+  border-color: color-mix(in srgb, var(--liang-control-accent) 72%, transparent);
+  background: radial-gradient(circle, var(--liang-control-accent) 0 2px, color-mix(in srgb, var(--liang-control-accent) 22%, var(--liang-layer-1)) 2.5px);
+}
+
+.liang-effort-control__range::-moz-range-track {
+  height: 1px;
+  background: transparent;
+}
+
+.liang-effort-control__range::-moz-range-progress {
+  height: 1px;
+  background: transparent;
+}
+
+.liang-effort-control__range::-moz-range-thumb {
+  width: 11px;
+  height: 11px;
+  border: 1.5px solid color-mix(in srgb, var(--liang-control-accent) 72%, transparent);
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--liang-control-accent) 24%, var(--dsw-alias-bg-layer-1, #fff));
+}
+
+.liang-effort-control__range:focus-visible {
+  outline: none;
+}
+
+.liang-effort-control[data-state="error"] {
+  --liang-control-accent: var(--dsw-alias-state-error-primary, #e43c3c);
+}
+
+.liang-appearance-choice {
+  box-sizing: border-box;
+  border: 1px solid var(--dsw-alias-border-l2);
+  flex: 180px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  padding: 20px 32px;
+  border-radius: 16px;
+  font: inherit;
+  color: var(--dsw-alias-label-primary);
+  cursor: pointer;
+  background: transparent;
+  font-size: 14px;
+  line-height: 22px;
+  display: flex;
+}
+
+[class*="_8HJdBW_cubeRow"]:has(.liang-appearance-choice) {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.liang-appearance-choice:hover:not([aria-pressed="true"]) {
+  background: var(--dsw-alias-interactive-bg-hover);
+}
+
+.liang-appearance-choice[aria-pressed="true"] {
+  border-color: var(--dsw-static-neutral-bluish-400);
+  background: var(--dsw-alias-bg-module-platform);
+}
+
+.liang-appearance-choice__icon {
+  display: block;
+  flex: 0 0 16px;
+  width: 16px;
+  height: 16px;
+  color: currentColor;
+  font-size: 16px;
+  line-height: 16px;
+}
+
+.liang-appearance-choice__label {
+  display: block;
+}
+
+/* Keep the host's three theme cubes untouched. These rules only style the
+   fourth button that is appended to the host cube row. */
+.liang-appearance-choice:disabled {
+  cursor: progress;
+  opacity: 0.7;
+}
+
+.liang-appearance-binding {
+  box-sizing: border-box;
+  display: flex;
+  width: 100%;
+  min-height: 28px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 4px 0 0;
+  color: var(--dsw-alias-label-primary);
+  font: inherit;
+  font-size: 14px;
+  line-height: 22px;
+  cursor: pointer;
+}
+
+.liang-appearance-binding__label {
+  display: block;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.liang-appearance-binding__copy {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.liang-appearance-binding__description {
+  display: block;
+  overflow: hidden;
+  color: var(--dsw-alias-label-secondary);
+  font-size: 12px;
+  line-height: 18px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.liang-appearance-binding__input {
+  position: relative;
+  flex: 0 0 36px;
+  width: 36px;
+  height: 20px;
+  margin: 0;
+  border: 1px solid var(--dsw-alias-border-l2);
+  border-radius: 999px;
+  outline: none;
+  cursor: pointer;
+  appearance: none;
+  background: var(--dsw-alias-interactive-bg-hover, var(--dsw-alias-bg-module-platform));
+}
+
+.liang-appearance-binding__input::before {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  content: "";
+  background: var(--dsw-alias-label-primary);
+  box-shadow: 0 1px 3px rgb(0 0 0 / 18%);
+  transition: transform 160ms ease, background-color 160ms ease;
+}
+
+.liang-appearance-binding__input:checked {
+  border-color: var(--dsw-static-neutral-bluish-400);
+  background: var(--dsw-static-neutral-bluish-400);
+}
+
+.liang-appearance-binding__input:checked::before {
+  background: var(--dsw-alias-bg-layer-1, #fff);
+  transform: translateX(16px);
+}
+
+.liang-appearance-binding__input:focus-visible {
+  box-shadow: 0 0 0 2px var(--dsw-alias-interactive-bg-hover);
+}
+
+.liang-appearance-binding__input:disabled {
+  cursor: progress;
+  opacity: 0.7;
+}
+
+@media (max-width: 760px) {
+  .liang-effort-control {
+    width: 92px;
+  }
+
+  .liang-skin-backdrop video,
+  .liang-skin-backdrop img {
+    right: -18vw;
+    width: 92vw;
+    opacity: calc(var(--liang-portrait-opacity, 0.45) * 0.72);
+  }
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .liang-skin-backdrop,
+  .liang-skin-backdrop video,
+  .liang-skin-backdrop img,
+  body[data-liang-skin="on"] button,
+  body[data-liang-skin="on"] input,
+  body[data-liang-skin="on"] textarea {
+    transition: none;
+  }
+}
