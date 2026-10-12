@@ -1,0 +1,28 @@
+{
+  "name": "dsh-profile-web",
+  "private": true,
+  "dependencies": {
+    "@liustack/modlens": "^3.26.6",
+    "@smalltailqwq/dsh-client-ui-skin-deep-whale-manager": "^0.1.6",
+    "@smalltailqwq/dsh-client-ui-skin-maid-atelier": "^0.1.7",
+    "@smalltailqwq/dsh-client-ui-skin-orca-link": "^0.1.7",
+    "@yunmiao/studymate": "^1.0.0",
+    "dsh-client-liang-intensity-skin": "link:D:/QYD/dsh-file/dsh-liang-skin",
+    "dsh-plugins-catalog": "github:Sakana-yuyu/dsh-plugins"
+  },
+  "dsh": {
+    "profile": {
+      "bundles": [
+        "@deepseek-ai/dsh-base",
+        "@deepseek-ai/dsh-web-app",
+        "dsh-client-liang-intensity-skin",
+        "@liustack/modlens",
+        "@smalltailqwq/dsh-client-ui-skin-deep-whale-manager",
+        "@smalltailqwq/dsh-client-ui-skin-orca-link",
+        "@yunmiao/studymate",
+        "@smalltailqwq/dsh-client-ui-skin-maid-atelier",
+        "dsh-plugins-catalog"
+      ]
+    }
+  }
+}

@@ -1,0 +1,142 @@
+/* ==========================================================================
+ * Wallpaper backdrop — the user's desktop wallpaper shown through translucent
+ * UI surfaces ("transparent display" style), with a live transparency knob
+ * and a manual 白天/黑夜 page-style switch.
+ *
+ * Layers
+ * ------
+ *   1. The wallpaper lives at apps/web/public/wallpaper.jpg, served at
+ *      /wallpaper.jpg, painted on body behind the app frame (cover, centered,
+ *      fixed). A soft scrim keeps text readable over an arbitrary picture.
+ *   2. Surface tokens derive their alpha from --dsw-wallpaper-opacity
+ *      (1 = opaque, wallpaper hidden; 0 = fully see-through). Raising the
+ *      transparency knob reveals more of the wallpaper.
+ *   3. The widget (wallpaper-widget.ts) writes `data-ds-wp-mode` (`light`/
+ *      `dark`) — the day/night source of truth for this feature — plus the
+ *      inline `--dsw-wallpaper-opacity`, both through :root inline styles
+ *      that beat the stylesheet defaults.
+ *
+ * This is the "native" skin for the Vanilla shell. It does not layer any
+ * liang-skin palette on top; if the dsh-client-liang-intensity-skin plugin
+ * is installed and enabled, leave it to the user's Appearance setting.
+ * Selectors are prefixed with `html` to beat the theme token sheets
+ * (body / body[data-ds-dark-theme]) regardless of bundle order, while inline
+ * overrides from the Appearance settings still win.
+ * ========================================================================== */
+
+/* Neutral fallback while the image loads or if it is missing. */
+html {
+  background-color: #0b0d10;
+}
+
+/* ---- Transparency knob and derived surface alphas (stylesheet defaults) ---- */
+html body {
+  /* 1 = fully opaque surfaces (wallpaper hidden); 0 = fully see-through. */
+  --dsw-wallpaper-opacity: 0.6;
+  --dsw-wp-s0: var(--dsw-wallpaper-opacity);                              /* base surfaces */
+  --dsw-wp-s1: min(calc(var(--dsw-wallpaper-opacity) + 0.08), 1);         /* nested surfaces */
+  --dsw-wp-s2: min(calc(var(--dsw-wallpaper-opacity) + 0.16), 1);         /* deep nesting */
+  --dsw-wp-pop: min(max(calc(var(--dsw-wallpaper-opacity) * 1.35), 0.85), 1); /* popovers stay readable */
+}
+
+/* day = whole page turns white; night = the current dark translucent look.
+   day/night share the scrim strength (the wallpaper is visible in both). */
+html body[data-ds-wp-mode='light'] {
+  --dsw-wp-scrim: calc(var(--dsw-wallpaper-opacity) * 0.52);
+}
+html body[data-ds-wp-mode='dark'] {
+  --dsw-wp-scrim: calc(var(--dsw-wallpaper-opacity) * 0.8);
+}
+
+/* The widget sets the mode at load; before it runs, default to the 'light'
+   day look so the loader surface never flashes a wrong palette. */
+html body:not([data-ds-wp-mode]) {
+  --dsw-wp-scrim: calc(var(--dsw-wallpaper-opacity) * 0.52);
+}
+
+/* The widget writes --dsw-wallpaper-opacity as an inline style on :root,
+   which overrides the stylesheet default and inherits to every surface. */
+
+/* ---- Wallpaper + readability scrim, day ---- */
+html body[data-ds-wp-mode='light'],
+html body:not([data-ds-wp-mode]) {
+  background-color: rgb(246 247 249 / 0.35);
+  background-image:
+    linear-gradient(rgb(12 14 18 / var(--dsw-wp-scrim)), rgb(12 14 18 / var(--dsw-wp-scrim))),
+    url('/wallpaper.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+/* ---- Wallpaper + readability scrim, night (stronger scrim) ---- */
+html body[data-ds-wp-mode='dark'] {
+  background-color: rgb(8 10 14 / 0.35);
+  background-image:
+    linear-gradient(rgb(8 10 14 / var(--dsw-wp-scrim)), rgb(8 10 14 / var(--dsw-wp-scrim))),
+    url('/wallpaper.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+/* ========================================================================
+ * DAY — whole page white glass over the wallpaper.
+ * ======================================================================== */
+html body[data-ds-wp-mode='light'],
+html body:not([data-ds-wp-mode]) {
+  --dsw-alias-bg-base: rgba(255, 255, 255, var(--dsw-wp-s0));
+  --dsw-alias-bg-layer-1: rgba(255, 255, 255, var(--dsw-wp-s0));
+  --dsw-alias-bg-layer-2: rgba(255, 255, 255, var(--dsw-wp-s1));
+  --dsw-alias-bg-layer-3: rgba(255, 255, 255, var(--dsw-wp-s2));
+  --dsw-alias-bg-overlay: rgba(255, 255, 255, var(--dsw-wp-pop));
+  --dsw-specific-sidebar-fill: rgba(250, 251, 252, var(--dsw-wp-s0));
+  --dsw-specific-bubble: rgba(240, 245, 255, var(--dsw-wp-s0));
+  --dsw-specific-bubble-highlight: rgba(222, 233, 255, var(--dsw-wp-s1));
+  --dsw-specific-input-major: rgba(255, 255, 255, var(--dsw-wp-s0));
+  --dsw-specific-login-input: rgba(249, 250, 251, var(--dsw-wp-s0));
+  --dsw-specific-selector: rgba(245, 246, 247, var(--dsw-wp-s0));
+  --dsw-specific-tip: rgba(245, 246, 247, var(--dsw-wp-s0));
+  --dsw-specific-menu: rgba(255, 255, 255, var(--dsw-wp-pop));
+  --dsw-alias-markdown-code-block: rgba(238, 241, 245, var(--dsw-wp-s0));
+  --dsw-alias-markdown-code-block-banner: rgba(245, 247, 249, var(--dsw-wp-s0));
+  --dsw-alias-markdown-inline-code: rgba(229, 233, 240, var(--dsw-wp-s1));
+  --dsw-alias-markdown-citation: rgba(238, 241, 245, var(--dsw-wp-s1));
+  --dsw-alias-markdown-tag: rgba(241, 243, 246, var(--dsw-wp-s1));
+  --dsw-alias-markdown-placeholder: rgba(245, 247, 249, var(--dsw-wp-s1));
+  --dsw-alias-button-elevated-fill: rgba(255, 255, 255, var(--dsw-wp-s0));
+  --dsw-alias-button-floating-fill: rgba(255, 255, 255, var(--dsw-wp-s0));
+  --dsw-alias-button-floating-hover: rgba(245, 247, 249, var(--dsw-wp-s1));
+  --dsw-alias-interactive-bg-hover-solid: rgba(241, 243, 246, var(--dsw-wp-s1));
+}
+
+/* ========================================================================
+ * NIGHT — the current dark translucent look.
+ * ======================================================================== */
+html body[data-ds-wp-mode='dark'] {
+  --dsw-alias-bg-base: rgba(21, 21, 23, var(--dsw-wp-s0));
+  --dsw-alias-bg-layer-1: rgba(35, 35, 36, var(--dsw-wp-s0));
+  --dsw-alias-bg-layer-2: rgba(44, 44, 46, var(--dsw-wp-s1));
+  --dsw-alias-bg-layer-3: rgba(53, 54, 56, var(--dsw-wp-s2));
+  --dsw-alias-bg-overlay: rgba(74, 76, 82, var(--dsw-wp-pop));
+  --dsw-specific-sidebar-fill: rgba(24, 25, 27, var(--dsw-wp-s0));
+  --dsw-specific-bubble: rgba(33, 33, 36, var(--dsw-wp-s0));
+  --dsw-specific-bubble-highlight: rgba(52, 53, 57, var(--dsw-wp-s1));
+  --dsw-specific-input-major: rgba(33, 34, 37, var(--dsw-wp-s0));
+  --dsw-specific-login-input: rgba(18, 18, 20, var(--dsw-wp-s0));
+  --dsw-specific-selector: rgba(48, 49, 53, var(--dsw-wp-s0));
+  --dsw-specific-tip: rgba(48, 49, 53, var(--dsw-wp-s0));
+  --dsw-specific-menu: rgba(48, 49, 53, var(--dsw-wp-pop));
+  --dsw-alias-markdown-code-block: rgba(18, 18, 20, var(--dsw-wp-s0));
+  --dsw-alias-markdown-code-block-banner: rgba(33, 34, 37, var(--dsw-wp-s0));
+  --dsw-alias-markdown-inline-code: rgba(44, 45, 49, var(--dsw-wp-s1));
+  --dsw-alias-markdown-citation: rgba(48, 49, 53, var(--dsw-wp-s1));
+  --dsw-alias-markdown-tag: rgba(44, 45, 49, var(--dsw-wp-s1));
+  --dsw-alias-markdown-placeholder: rgba(44, 45, 49, var(--dsw-wp-s1));
+  --dsw-alias-button-elevated-fill: rgba(44, 45, 49, var(--dsw-wp-s0));
+  --dsw-alias-button-floating-fill: rgba(33, 34, 37, var(--dsw-wp-s0));
+  --dsw-alias-button-floating-hover: rgba(53, 54, 58, var(--dsw-wp-s1));
+  --dsw-alias-interactive-bg-hover-solid: rgba(44, 45, 49, var(--dsw-wp-s1));
+}

@@ -1,0 +1,4 @@
+# Migration payload: preserve exact bytes.
+# A CRLF-converted .patch breaks `git apply`; converted .orig/.js bundles
+# break the skin patch scripts, whose anchors embed literal CRLF.
+* -text

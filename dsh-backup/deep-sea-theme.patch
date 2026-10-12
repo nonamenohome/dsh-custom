@@ -1,0 +1,554 @@
+diff --git a/packages/client/ui-conversation/src/client/chat/MessageItem.module.css b/packages/client/ui-conversation/src/client/chat/MessageItem.module.css
+index 36824d228d..839f504847 100644
+--- a/packages/client/ui-conversation/src/client/chat/MessageItem.module.css
++++ b/packages/client/ui-conversation/src/client/chat/MessageItem.module.css
+@@ -26,6 +26,14 @@
+   font-size: 16px;
+   line-height: 24px;
+   color: var(--dsw-alias-label-primary);
++  /* Beautification: a whisper of elevation lifts the user bubble off the
++     transcript; dark mode adds a hairline so the raised surface reads on the
++     deep base. */
++  box-shadow: var(--dsw-shadow-lv1);
++}
++
++:global(body[data-ds-dark-theme]) .bubble {
++  border: 1px solid var(--dsw-alias-border-l2-darkmode-thin);
+ }
+ 
+ .contextRow {
+diff --git a/packages/client/ui-conversation/src/client/skeleton/ConversationRoot.module.css b/packages/client/ui-conversation/src/client/skeleton/ConversationRoot.module.css
+index 6146d42810..c8a5cf3f7f 100644
+--- a/packages/client/ui-conversation/src/client/skeleton/ConversationRoot.module.css
++++ b/packages/client/ui-conversation/src/client/skeleton/ConversationRoot.module.css
+@@ -8,7 +8,10 @@
+   flex-direction: column;
+   height: 100%;
+   min-width: 0;
+-  background: var(--dsw-alias-bg-base);
++  /* Ambient top-center wash over the base surface (tokens in ui-theme
++     gradient-shadow-text.css): adds a whisper of brand blue depth to the
++     conversation column in both themes. */
++  background: var(--dsw-ambient-chat) no-repeat, var(--dsw-alias-bg-base);
+ 
+   /* Shared width axis for the whole column: one content width W
+      (--dsh-chat-content-width) for the transcript, the dock cards
+@@ -338,6 +341,30 @@
+   aspect-ratio: 1051 / 468;
+   transform: translate(-50%, 50%);
+   pointer-events: none;
++  /* Beautification: the SVG ellipse keeps its blurred core; a layered radial
++     bloom behind it turns the flat ellipse into a soft gradient wash that
++     slowly breathes (tokens from ui-theme gradient-shadow-text.css). */
++  border-radius: 50%;
++  background:
++    radial-gradient(closest-side, var(--dsw-hero-glow-core), transparent 68%),
++    radial-gradient(closest-side at 50% 62%, var(--dsw-hero-glow-ring), transparent 80%);
++  animation: dsh-hero-glow-breathe 6s var(--ds-ease-in-out) infinite alternate;
++}
++
++@keyframes dsh-hero-glow-breathe {
++  from {
++    opacity: 0.72;
++  }
++
++  to {
++    opacity: 1;
++  }
++}
++
++@media (prefers-reduced-motion: reduce) {
++  .heroGlow {
++    animation: none;
++  }
+ }
+ 
+ .heroWorkspaceRow {
+diff --git a/packages/client/ui-conversation/src/client/skeleton/DetailsPanel.module.css b/packages/client/ui-conversation/src/client/skeleton/DetailsPanel.module.css
+index cc5d732e45..d768160c6a 100644
+--- a/packages/client/ui-conversation/src/client/skeleton/DetailsPanel.module.css
++++ b/packages/client/ui-conversation/src/client/skeleton/DetailsPanel.module.css
+@@ -80,6 +80,7 @@
+   margin: 0;
+   padding: 16px;
+   border-radius: 12px;
++  border: 1px solid var(--dsw-alias-border-l1);
+   background: var(--dsw-alias-markdown-code-block);
+   font-family: var(--ds-font-family-code);
+   font-size: 13px;
+diff --git a/packages/client/ui-conversation/src/client/skeleton/HeroShell.module.css b/packages/client/ui-conversation/src/client/skeleton/HeroShell.module.css
+index 91dfb4a8a3..d747360576 100644
+--- a/packages/client/ui-conversation/src/client/skeleton/HeroShell.module.css
++++ b/packages/client/ui-conversation/src/client/skeleton/HeroShell.module.css
+@@ -70,9 +70,11 @@
+   justify-content: center;
+ }
+ 
+-/* Keep the hero mark in the same primary ink as its headline. */
++/* Hero mark: the whale is the brand mark, so it carries the business blue
++   while the headline stays in ink — a quiet accent that matches the glow
++   behind the composer. */
+ .fish {
+-  color: var(--dsw-alias-label-primary);
++  color: var(--dsw-alias-state-business-primary);
+   transform-origin: 50% 60%;
+ }
+ 
+diff --git a/packages/client/ui-conversation/src/client/skeleton/InputBar.module.css b/packages/client/ui-conversation/src/client/skeleton/InputBar.module.css
+index 6a2eb5fdf4..7524d3dcc6 100644
+--- a/packages/client/ui-conversation/src/client/skeleton/InputBar.module.css
++++ b/packages/client/ui-conversation/src/client/skeleton/InputBar.module.css
+@@ -65,13 +65,22 @@
+   padding-top: 10px;
+   /* Input stroke: black/0.10 light, white/0.06 dark (figma darkmode note says
+      the input border is one notch weaker than buttons) — exactly the
+-     l2-darkmode-thin pair. Fill: the input surface token (elevated in dark). */
++     l2-darkmode-thin pair. Fill: the input surface token (elevated in dark).
++     Beautification: the card is a soft glass — near-opaque tint plus a
++     backdrop blur so transcript scrolling under the sticky footer reads
++     through a whisper, and a focus-within ring lifts the whole composer. */
+   border: 1px solid var(--dsw-alias-border-l2-darkmode-thin);
+   border-radius: 22px;
+-  background: var(--dsw-specific-input-major);
++  background: color-mix(in srgb, var(--dsw-specific-input-major) 92%, transparent);
++  -webkit-backdrop-filter: blur(18px) saturate(1.35);
++  backdrop-filter: blur(18px) saturate(1.35);
+   box-shadow: var(--dsw-shadow-lv2);
+   font-size: 16px;
+   line-height: 24px;
++  transition:
++    border-color var(--ds-transition-duration) var(--ds-ease-in-out),
++    box-shadow var(--ds-transition-duration) var(--ds-ease-in-out),
++    background-color var(--ds-transition-duration) var(--ds-ease-in-out);
+   /* Elevated surface in dark, same as the menus: the draft scrollport inside
+      scrolls once the composer hits its height cap, so the thumb takes the l2
+      pair. Declared on the card because the elevation belongs to the surface,
+@@ -81,6 +90,15 @@
+   --dsh-scrollbar-thumb-hover: var(--dsw-alias-scrollbar-hover-l2);
+ }
+ 
++/* Composer focus: business-blue stroke plus a soft halo ring (alpha mixed
++   from the same blue), replacing the resting hairline + shadow. */
++.card:focus-within {
++  border-color: var(--dsw-alias-state-business-primary);
++  box-shadow:
++    0 0 0 4px color-mix(in srgb, var(--dsw-alias-state-business-primary) 14%, transparent),
++    var(--dsw-shadow-lv2);
++}
++
+ /* No-workspace trigger state: dashed l4 stroke marks the card as a pick-a-
+    workspace affordance rather than a live composer; hover answers in the
+    business blue to invite the click. Native `dashed` has a fixed browser
+@@ -335,10 +353,14 @@
+   background: var(--dsw-specific-selector);
+   color: var(--dsw-alias-label-primary);
+   cursor: pointer;
++  transition:
++    background-color var(--ds-transition-duration-fast) var(--ds-ease-in-out),
++    transform var(--ds-transition-duration-fast) var(--ds-ease-in-out);
+ }
+ 
+ .add:hover:not(:disabled) {
+   background: var(--dsw-alias-interactive-bg-hover-solid);
++  transform: translateY(-1px);
+ }
+ 
+ .add:disabled {
+@@ -380,7 +402,9 @@
+ 
+ /* Primary send (figma IconButton 34:10465): 34px circle, #3964FE light /
+    #679EFE dark — the info-fill pair (500→400), NOT button-primary (ink);
+-   white glyph; empty text = 0.4 opacity. */
++   white glyph; empty text = 0.4 opacity. Beautification: a 135° blue
++   gradient fill with a matching soft glow; hover lifts and brightens, press
++   settles it back. */
+ .primary {
+   display: grid;
+   place-items: center;
+@@ -389,12 +413,20 @@
+   height: 34px;
+   border: none;
+   border-radius: 999px;
+-  background: var(--dsw-alias-button-info-fill);
++  background: linear-gradient(
++    135deg,
++    var(--dsw-static-deepseek-400),
++    var(--dsw-static-deepseek-500)
++  );
+   /* Static white, not the foreground token: the arrow stays white on the blue
+      fill in both themes (design 34:10465). */
+   color: #fff;
+   cursor: pointer;
+-  transition: background-color 100ms ease;
++  box-shadow: 0 4px 12px color-mix(in srgb, var(--dsw-static-deepseek-500) 35%, transparent);
++  transition:
++    transform var(--ds-transition-duration-fast) var(--ds-ease-in-out),
++    filter var(--ds-transition-duration-fast) var(--ds-ease-in-out),
++    box-shadow var(--ds-transition-duration-fast) var(--ds-ease-in-out);
+   /* Opts out of the row's 2px downward shift (.row top pad): the send circle
+      keeps its original seat while the smaller chips sit lower. Transform, not
+      margin, so flex centering math is untouched. */
+@@ -402,11 +434,18 @@
+ }
+ 
+ .primary:hover:not(:disabled) {
+-  background: var(--dsw-alias-button-info-hover);
++  filter: brightness(1.07);
++  transform: translateY(-3px) scale(1.04);
++  box-shadow: 0 6px 18px color-mix(in srgb, var(--dsw-static-deepseek-500) 45%, transparent);
++}
++
++.primary:active:not(:disabled) {
++  transform: translateY(-1px) scale(0.97);
+ }
+ 
+ .primary:disabled {
+   opacity: 0.4;
++  box-shadow: none;
+   cursor: default;
+ }
+ 
+diff --git a/packages/client/ui-primitives/src/Button.module.css b/packages/client/ui-primitives/src/Button.module.css
+index b9384dd522..6df4af410e 100644
+--- a/packages/client/ui-primitives/src/Button.module.css
++++ b/packages/client/ui-primitives/src/Button.module.css
+@@ -14,6 +14,10 @@
+   color: var(--dsw-alias-label-primary);
+   background: transparent;
+   padding: 0 14px;
++  transition:
++    background-color var(--ds-transition-duration-fast) var(--ds-ease-in-out),
++    box-shadow var(--ds-transition-duration-fast) var(--ds-ease-in-out),
++    transform var(--ds-transition-duration-fast) var(--ds-ease-in-out);
+ }
+ 
+ .button:disabled {
+@@ -38,10 +42,19 @@
+ .primary {
+   background: var(--dsw-alias-button-primary-fill);
+   color: var(--dsw-alias-label-primary-foreground);
++  /* Soft elevation + a hairline lift on hover make the primary action feel
++     tactile without changing the design's flat silhouette. */
++  box-shadow: var(--dsw-shadow-lv1);
+ }
+ 
+ .primary:hover:not(:disabled) {
+   background: var(--dsw-alias-button-primary-hover);
++  box-shadow: var(--dsw-shadow-lv2);
++  transform: translateY(-1px);
++}
++
++.primary:active:not(:disabled) {
++  transform: translateY(0);
+ }
+ 
+ .ghost:hover:not(:disabled) {
+diff --git a/packages/client/ui-primitives/src/Menu.module.css b/packages/client/ui-primitives/src/Menu.module.css
+index 7bc0c5aced..d8d3271a83 100644
+--- a/packages/client/ui-primitives/src/Menu.module.css
++++ b/packages/client/ui-primitives/src/Menu.module.css
+@@ -17,6 +17,8 @@
+   border-radius: 12px;
+   background: var(--dsw-specific-menu);
+   box-shadow: var(--dsw-shadow-lv3);
++  /* Soft fade-in so popovers land instead of popping. */
++  animation: dsh-menu-in var(--ds-transition-duration-fast) var(--ds-ease-in-out);
+   /* Elevated surface: the scrollbar thumb takes the l2 elevation tokens. The
+      declaration sits on the card rather than on `.scrollable .viewport`
+      because the elevation is a property of this surface, and the custom
+@@ -26,6 +28,12 @@
+   --dsh-scrollbar-thumb-hover: var(--dsw-alias-scrollbar-hover-l2);
+ }
+ 
++@keyframes dsh-menu-in {
++  from {
++    opacity: 0;
++  }
++}
++
+ /* Primary card is 218 wide in the design across both hosts. */
+ .list {
+   position: absolute;
+@@ -240,3 +248,10 @@
+   left: -10px;
+   width: 10px;
+ }
++
++@media (prefers-reduced-motion: reduce) {
++  .list,
++  .submenu {
++    animation: none;
++  }
++}
+diff --git a/packages/client/ui-primitives/src/Modal.module.css b/packages/client/ui-primitives/src/Modal.module.css
+index 0c6d68e5fa..04d3ac0435 100644
+--- a/packages/client/ui-primitives/src/Modal.module.css
++++ b/packages/client/ui-primitives/src/Modal.module.css
+@@ -16,6 +16,13 @@
+   inset: 0;
+   background: var(--dsw-alias-bg-mask-1);
+   backdrop-filter: var(--dsw-mask-blur);
++  animation: dsh-mask-in 180ms ease-out;
++}
++
++@keyframes dsh-mask-in {
++  from {
++    opacity: 0;
++  }
+ }
+ 
+ /* Dialog card: r24, shadow-lv3, layer-2 fill, inverted border, pb 24. */
+@@ -32,6 +39,21 @@
+   border-radius: 24px;
+   background: var(--dsw-alias-bg-layer-2);
+   box-shadow: var(--dsw-shadow-lv3);
++  animation: dsh-dialog-in 180ms var(--ds-ease-in-out);
++}
++
++@keyframes dsh-dialog-in {
++  from {
++    opacity: 0;
++    transform: scale(0.96) translateY(4px);
++  }
++}
++
++@media (prefers-reduced-motion: reduce) {
++  .mask,
++  .dialog {
++    animation: none;
++  }
+ }
+ 
+ .content {
+diff --git a/packages/client/ui-primitives/src/markdown/MarkdownText.module.css b/packages/client/ui-primitives/src/markdown/MarkdownText.module.css
+index b62e66e86e..399fc14542 100644
+--- a/packages/client/ui-primitives/src/markdown/MarkdownText.module.css
++++ b/packages/client/ui-primitives/src/markdown/MarkdownText.module.css
+@@ -132,9 +132,13 @@
+ }
+ 
+ .markdown blockquote {
+-  border-left: 2px solid var(--dsw-alias-label-caption);
++  /* Beautification: brand-blue accent bar + whisper tint so citations read as
++     elevated callouts instead of a gray left rule. */
++  border-left: 3px solid var(--dsw-alias-state-business-primary);
++  border-radius: 0 10px 10px 0;
++  background: color-mix(in srgb, var(--dsw-alias-state-business-primary) 6%, transparent);
+   margin: 16px 0 0;
+-  padding-left: 14px;
++  padding: 2px 14px;
+ }
+ 
+ .markdown pre {
+diff --git a/packages/client/ui-sidebar/src/client/SidebarRoot.module.css b/packages/client/ui-sidebar/src/client/SidebarRoot.module.css
+index 300075b88d..64acc4d3cd 100644
+--- a/packages/client/ui-sidebar/src/client/SidebarRoot.module.css
++++ b/packages/client/ui-sidebar/src/client/SidebarRoot.module.css
+@@ -13,7 +13,11 @@
+   height: 100%;
+   padding: 6px var(--dsh-sidebar-inline-padding);
+   box-sizing: border-box;
+-  background: var(--dsw-specific-sidebar-fill);
++  /* Beautification: a faint business-blue wash fades in behind the logo row,
++     echoing the conversation column's ambient light for a cohesive surface. */
++  background:
++    linear-gradient(180deg, color-mix(in srgb, var(--dsw-alias-state-business-tertiary) 9%, transparent), transparent 230px),
++    var(--dsw-specific-sidebar-fill);
+   color: var(--dsw-alias-label-primary);
+   font-size: 14px;
+   /* The sidebar is elevated above the conversation surface, so a revealed
+@@ -190,10 +194,16 @@
+   line-height: 22px;
+   cursor: pointer;
+   overflow: hidden;
++  transition:
++    border-color var(--ds-transition-duration-fast) var(--ds-ease-in-out),
++    box-shadow var(--ds-transition-duration-fast) var(--ds-ease-in-out),
++    background-color var(--ds-transition-duration-fast) var(--ds-ease-in-out);
+ }
+ 
+ .newSession:hover {
+   background: var(--dsw-alias-button-floating-hover);
++  border-color: var(--dsw-alias-border-l3);
++  box-shadow: var(--dsw-shadow-lv1);
+ }
+ 
+ .collapsed .newSession {
+diff --git a/packages/client/ui-theme/src/styles/design-platform.css b/packages/client/ui-theme/src/styles/design-platform.css
+index 5dd0948769..e545ded1e1 100644
+--- a/packages/client/ui-theme/src/styles/design-platform.css
++++ b/packages/client/ui-theme/src/styles/design-platform.css
+@@ -126,25 +126,28 @@ body[data-ds-dark-theme] {
+   --dsw-static-neutral-800: rgb(41, 41, 41);
+   --dsw-static-neutral-850: rgb(33, 33, 35);
+   --dsw-static-neutral-900: rgb(15, 15, 15);
++  /* Dark-mode bluish neutrals carry a faint blue undertone (hue ≈ 225°,
++     sat ≈ 15–20%) so dark surfaces read as deep blue-black rather than flat
++     gray — the premium "deep-sea" treatment. Light-mode values stay neutral. */
+   --dsw-static-neutral-bluish-00: rgb(255, 255, 255);
+-  --dsw-static-neutral-bluish-1000: rgb(15, 17, 21);
++  --dsw-static-neutral-bluish-1000: rgb(12, 14, 19);
+   --dsw-static-neutral-bluish-100: rgb(235, 238, 242);
+   --dsw-static-neutral-bluish-150: rgb(233, 236, 242);
+   --dsw-static-neutral-bluish-200: rgb(225, 229, 238);
+-  --dsw-static-neutral-bluish-300: rgb(207, 211, 214);
+-  --dsw-static-neutral-bluish-400: rgb(173, 178, 184);
+-  --dsw-static-neutral-bluish-500: rgb(151, 157, 166);
+-  --dsw-static-neutral-bluish-50: rgb(249, 250, 251);
+-  --dsw-static-neutral-bluish-600: rgb(129, 133, 140);
+-  --dsw-static-neutral-bluish-60: rgb(249, 250, 251);
+-  --dsw-static-neutral-bluish-700: rgb(97, 102, 107);
+-  --dsw-static-neutral-bluish-750: rgb(67, 69, 74);
+-  --dsw-static-neutral-bluish-75: rgb(241, 243, 245);
+-  --dsw-static-neutral-bluish-800: rgb(53, 54, 56);
+-  --dsw-static-neutral-bluish-850: rgb(44, 44, 46);
+-  --dsw-static-neutral-bluish-875: rgb(35, 35, 36);
+-  --dsw-static-neutral-bluish-900: rgb(27, 27, 28);
+-  --dsw-static-neutral-bluish-950: rgb(21, 21, 23);
++  --dsw-static-neutral-bluish-300: rgb(208, 212, 221);
++  --dsw-static-neutral-bluish-400: rgb(168, 174, 186);
++  --dsw-static-neutral-bluish-500: rgb(140, 146, 158);
++  --dsw-static-neutral-bluish-50: rgb(247, 248, 251);
++  --dsw-static-neutral-bluish-600: rgb(105, 111, 123);
++  --dsw-static-neutral-bluish-60: rgb(245, 246, 248);
++  --dsw-static-neutral-bluish-700: rgb(72, 78, 90);
++  --dsw-static-neutral-bluish-750: rgb(46, 52, 63);
++  --dsw-static-neutral-bluish-75: rgb(240, 242, 246);
++  --dsw-static-neutral-bluish-800: rgb(36, 41, 51);
++  --dsw-static-neutral-bluish-850: rgb(30, 34, 43);
++  --dsw-static-neutral-bluish-875: rgb(25, 28, 36);
++  --dsw-static-neutral-bluish-900: rgb(21, 24, 31);
++  --dsw-static-neutral-bluish-950: rgb(16, 18, 24);
+   --dsw-static-red-100: rgb(254, 226, 226);
+   --dsw-static-red-400: rgb(242, 90, 90);
+   --dsw-static-red-500: rgb(239, 68, 68);
+@@ -307,10 +310,10 @@ body[data-ds-dark-theme] {
+   --dsw-alias-markdown-inline-code: var(--dsw-static-neutral-bluish-850);
+   --dsw-alias-markdown-placeholder: var(--dsw-static-neutral-bluish-850);
+   --dsw-alias-markdown-tag: var(--dsw-static-neutral-bluish-850);
+-  --dsw-alias-scrollbar-bg-l1: var(--dsw-static-neutral-700);
+-  --dsw-alias-scrollbar-bg-l2: var(--dsw-static-neutral-600);
+-  --dsw-alias-scrollbar-hover-l1: var(--dsw-static-neutral-600);
+-  --dsw-alias-scrollbar-hover-l2: var(--dsw-static-neutral-550);
++  --dsw-alias-scrollbar-bg-l1: var(--dsw-static-neutral-bluish-700);
++  --dsw-alias-scrollbar-bg-l2: var(--dsw-static-neutral-bluish-700);
++  --dsw-alias-scrollbar-hover-l1: var(--dsw-static-neutral-bluish-600);
++  --dsw-alias-scrollbar-hover-l2: var(--dsw-static-neutral-bluish-600);
+   --dsw-alias-state-business-primary: var(--dsw-static-deepseek-400);
+   --dsw-alias-state-business-tertiary: var(--dsw-static-deepseek-800);
+   --dsw-alias-state-error-primary: var(--dsw-static-red-400);
+diff --git a/packages/client/ui-theme/src/styles/gradient-shadow-text.css b/packages/client/ui-theme/src/styles/gradient-shadow-text.css
+index e062b4ba93..62700262e2 100644
+--- a/packages/client/ui-theme/src/styles/gradient-shadow-text.css
++++ b/packages/client/ui-theme/src/styles/gradient-shadow-text.css
+@@ -1,19 +1,41 @@
+ body {
+   --dsw-linear-gradient-think: linear-gradient(180deg, #fff 20.19%, rgba(255, 255, 255, 0) 100%);
+   --dsw-linear-think-select: linear-gradient(180deg, #f5f6f7 20.19%, rgba(245, 246, 247, 0) 100%);
+-  /* 阴影 */
+-  --dsw-shadow-lv1: 0 2px 4px 0 rgba(0, 0, 0, 0.05);
+-  --dsw-shadow-lv1-blur: 0 4px 12px 0 rgba(0, 0, 0, 0.02);
+-  --dsw-shadow-lv2: 0 4px 12px 0 rgba(0, 0, 0, 0.02), 0 2px 8px 0 rgba(0, 0, 0, 0.04);
++  /* 阴影 — layered so elevation reads as depth, not a gray smear. Ink-tinted
++     (blue-black) rather than pure black keeps the premium cast in both themes. */
++  --dsw-shadow-lv1: 0 1px 2px rgba(16, 24, 40, 0.05), 0 1px 3px rgba(16, 24, 40, 0.06);
++  --dsw-shadow-lv1-blur: 0 4px 16px rgba(16, 24, 40, 0.05);
++  --dsw-shadow-lv2: 0 2px 4px rgba(16, 24, 40, 0.04), 0 6px 16px rgba(16, 24, 40, 0.08);
+   --dsw-shadow-lv3:
+-    0 0 1px 0 rgba(0, 0, 0, 0.2), 0 0 4px 0 rgba(0, 0, 0, 0.02), 0 12px 32px 0 rgba(0, 0, 0, 0.08);
++    0 1px 2px rgba(16, 24, 40, 0.06),
++    0 8px 24px rgba(16, 24, 40, 0.1),
++    0 24px 64px rgba(16, 24, 40, 0.12);
+   /* blur filter */
+   --dsw-mask-blur: blur(2px);
++  /* Ambient + glow tokens (beautification additions): a top-center light wash
++     for chat/hero surfaces and a business-blue bloom for the empty state. */
++  --dsw-ambient-chat:
++    radial-gradient(1100px 480px at 50% -140px, rgba(77, 147, 248, 0.1), transparent 70%);
++  --dsw-hero-glow-core: rgba(97, 135, 216, 0.14);
++  --dsw-hero-glow-ring: rgba(103, 158, 254, 0.08);
+ }
+ 
+ body[data-ds-dark-theme] {
+   --dsw-linear-gradient-think: linear-gradient(180deg, #151517 20.19%, rgba(21, 21, 23, 0) 100%);
+   --dsw-linear-think-select: linear-gradient(180deg, #232325 20.19%, rgba(35, 35, 37, 0) 100%);
++  /* Dark elevation needs stronger, blacker shadows (surfaces are dark already),
++     with a faint blue cast so raised layers lift off the blue-black base. */
++  --dsw-shadow-lv1: 0 1px 2px rgba(0, 0, 0, 0.32), 0 2px 6px rgba(0, 0, 0, 0.24);
++  --dsw-shadow-lv1-blur: 0 4px 16px rgba(0, 0, 0, 0.28);
++  --dsw-shadow-lv2: 0 2px 6px rgba(0, 0, 0, 0.36), 0 8px 20px rgba(0, 0, 0, 0.34);
++  --dsw-shadow-lv3:
++    0 2px 8px rgba(0, 0, 0, 0.4),
++    0 16px 40px rgba(0, 0, 0, 0.48),
++    0 32px 80px rgba(4, 8, 20, 0.5);
++  --dsw-ambient-chat:
++    radial-gradient(1100px 520px at 50% -160px, rgba(103, 158, 254, 0.12), transparent 70%);
++  --dsw-hero-glow-core: rgba(103, 158, 254, 0.2);
++  --dsw-hero-glow-ring: rgba(103, 158, 254, 0.09);
+ }
+ 
+ /* ---------- 字体 ---------- */
+diff --git a/packages/client/ui-workspace/src/client/rows/Rows.module.css b/packages/client/ui-workspace/src/client/rows/Rows.module.css
+index 5dc899af45..a4cc676051 100644
+--- a/packages/client/ui-workspace/src/client/rows/Rows.module.css
++++ b/packages/client/ui-workspace/src/client/rows/Rows.module.css
+@@ -21,7 +21,23 @@
+ }
+ 
+ .sessionRow.selected {
+-  background: var(--dsw-alias-interactive-bg-hover);
++  /* Beautification: the active session gets a translucent brand-blue tint
++     (instead of the plain gray hover fill) plus a 3px left accent bar, so the
++     current context reads at a glance. */
++  background: color-mix(in srgb, var(--dsw-alias-state-business-primary) 12%, transparent);
++}
++
++.sessionRow.selected::before {
++  content: '';
++  position: absolute;
++  top: 6px;
++  bottom: 6px;
++  left: 0;
++  width: 3px;
++  border-radius: 0 2px 2px 0;
++  background: var(--dsw-alias-state-business-primary);
++  opacity: 0.9;
++  pointer-events: none;
+ }
+ 
+ .searchResultRow {
+@@ -45,7 +61,7 @@
+ }
+ 
+ .searchResultRow.selected {
+-  background: var(--dsw-alias-interactive-bg-hover);
++  background: color-mix(in srgb, var(--dsw-alias-state-business-primary) 12%, transparent);
+ }
+ 
+ .searchResultHeading {
+@@ -108,6 +124,7 @@
+ .sessionRow {
+   height: 32px;
+   gap: 0;
++  position: relative; /* anchors the .selected left accent bar */
+   /* Mount fade: session rows appear by unfolding a group (or the tree
+      mounting). Stable row keys keep already-visible rows from replaying it. */
+   animation: row-in 150ms var(--ds-ease-in-out);
+diff --git a/packages/client/web/src/base.css b/packages/client/web/src/base.css
+index 7ebfabe5ff..3d56bfd41f 100644
+--- a/packages/client/web/src/base.css
++++ b/packages/client/web/src/base.css
+@@ -25,6 +25,13 @@ body {
+   background: var(--dsw-alias-bg-base);
+ }
+ 
++/* Selection follows the business blue so highlighted text echoes the brand
++   accent instead of the UA blue in both themes. */
++::selection {
++  background: color-mix(in srgb, var(--dsw-alias-state-business-primary) 22%, transparent);
++  color: var(--dsw-alias-label-primary);
++}
++
+ /* Form controls don't inherit the body font (UA sheets pin their families —
+    Chrome buttons fall back to Arial, textareas to monospace), so the app
+    stack is re-applied to them explicitly, as upstream's global reset does. */

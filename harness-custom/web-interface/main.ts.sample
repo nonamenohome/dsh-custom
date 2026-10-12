@@ -1,0 +1,16 @@
+/**
+ * Web application entry: thin bootstrap over the shell library. Everything —
+ * loader holding, module-table seeding, AppRoot gate, plugin assembly — lives
+ * in @deepseek-ai/dsh-client-web; this file only finds the mount point.
+ */
+import { AppWebEntry } from '@deepseek-ai/dsh-client-web'
+// Wallpaper backdrop + translucent surfaces; imported AFTER the shell so its
+// rules land later in the bundle than the theme token sheets (see the file
+// header for the cascade contract).
+import './wallpaper.css'
+// Page-style widget: 白天/黑夜 switch + wallpaper transparency slider.
+import './wallpaper-widget.ts'
+
+const el = document.getElementById('root')
+if (el === null) throw new Error('web app: missing #root')
+void new AppWebEntry(el).run()

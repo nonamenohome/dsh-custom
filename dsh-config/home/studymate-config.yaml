@@ -1,0 +1,8 @@
+# StudyMate 学习工作区与引擎项目定位
+{
+  "workspace": "C:\\Users\\quyuedi\\StudyMate",
+  "root": "C:\\Users\\quyuedi\\.dsh\\studymate\\engine",
+  "installModes": {
+    "web": "native"
+  }
+}

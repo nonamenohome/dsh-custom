@@ -1,0 +1,1802 @@
+[
+ {
+  "rank": 1,
+  "repo": "yjh051108/dsh-routing-suite",
+  "url": "https://github.com/yjh051108/dsh-routing-suite",
+  "lang": "JavaScript",
+  "stars": 7014,
+  "lic": "MIT",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 2,
+  "repo": "ccch1mneyyy/dsh-TUI",
+  "url": "https://github.com/ccch1mneyyy/dsh-TUI",
+  "lang": "TypeScript",
+  "stars": 4235,
+  "lic": "MIT",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 3,
+  "repo": "liustack/modlens",
+  "url": "https://github.com/liustack/modlens",
+  "lang": "TypeScript",
+  "stars": 4179,
+  "lic": "MIT",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 4,
+  "repo": "omdsh-dev/DSH-better-sidebar",
+  "url": "https://github.com/omdsh-dev/DSH-better-sidebar",
+  "lang": "TypeScript",
+  "stars": 4079,
+  "lic": "MIT",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 5,
+  "repo": "Small-tailqwq/dsh-deep-whale",
+  "url": "https://github.com/Small-tailqwq/dsh-deep-whale",
+  "lang": "TypeScript",
+  "stars": 2491,
+  "lic": "NOASSERTION",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 6,
+  "repo": "NanmiCoder/dsh-agent-teams",
+  "url": "https://github.com/NanmiCoder/dsh-agent-teams",
+  "lang": "JavaScript",
+  "stars": 1990,
+  "lic": "MIT",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 7,
+  "repo": "bowenliang123/dsh-context",
+  "url": "https://github.com/bowenliang123/dsh-context",
+  "lang": "TypeScript",
+  "stars": 1948,
+  "lic": "Apache-2.0",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 8,
+  "repo": "xmanrui/dsh-im",
+  "url": "https://github.com/xmanrui/dsh-im",
+  "lang": "JavaScript",
+  "stars": 1755,
+  "lic": "MIT",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 9,
+  "repo": "shaobeichen/dsh-pocket",
+  "url": "https://github.com/shaobeichen/dsh-pocket",
+  "lang": "JavaScript",
+  "stars": 1619,
+  "lic": "GPL-2.0",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 10,
+  "repo": "Devin-AXIS/deepseek-design",
+  "url": "https://github.com/Devin-AXIS/deepseek-design",
+  "lang": "JavaScript",
+  "stars": 1441,
+  "lic": "NOASSERTION",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 11,
+  "repo": "mem9-ai/mem9",
+  "url": "https://github.com/mem9-ai/mem9",
+  "lang": "TypeScript",
+  "stars": 1222,
+  "lic": "Apache-2.0",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 12,
+  "repo": "PC2005-cloud/dsh-pet",
+  "url": "https://github.com/PC2005-cloud/dsh-pet",
+  "lang": "TypeScript",
+  "stars": 1191,
+  "lic": "MIT",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 13,
+  "repo": "ysr666/dsh-vision-router",
+  "url": "https://github.com/ysr666/dsh-vision-router",
+  "lang": "JavaScript",
+  "stars": 1138,
+  "lic": "MIT",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 14,
+  "repo": "Anionex/dsh-vision-toolkit",
+  "url": "https://github.com/Anionex/dsh-vision-toolkit",
+  "lang": "TypeScript",
+  "stars": 887,
+  "lic": "MIT",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 15,
+  "repo": "elysia395/dsh-wallpaper-engine",
+  "url": "https://github.com/elysia395/dsh-wallpaper-engine",
+  "lang": "JavaScript",
+  "stars": 879,
+  "lic": "MIT",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 16,
+  "repo": "toby-bridges/api-relay-audit",
+  "url": "https://github.com/toby-bridges/api-relay-audit",
+  "lang": "Python",
+  "stars": 872,
+  "lic": "AGPL-3.0",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 17,
+  "repo": "flizzywine/dsh-tavern",
+  "url": "https://github.com/flizzywine/dsh-tavern",
+  "lang": "JavaScript",
+  "stars": 836,
+  "lic": "AGPL-3.0",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 18,
+  "repo": "omdsh-dev/dsh-browser",
+  "url": "https://github.com/omdsh-dev/dsh-browser",
+  "lang": "TypeScript",
+  "stars": 786,
+  "lic": "MIT",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 19,
+  "repo": "Miaotofu01/Study-Mate",
+  "url": "https://github.com/Miaotofu01/Study-Mate",
+  "lang": "JavaScript",
+  "stars": 771,
+  "lic": "MIT",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 20,
+  "repo": "Aisland-SJL/dsh-worktable",
+  "url": "https://github.com/Aisland-SJL/dsh-worktable",
+  "lang": "JavaScript",
+  "stars": 722,
+  "lic": "MIT",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 21,
+  "repo": "SeaOf0/dsh-redteam-model",
+  "url": "https://github.com/SeaOf0/dsh-redteam-model",
+  "lang": "Python",
+  "stars": 678,
+  "lic": "MIT",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 22,
+  "repo": "ccch1mneyyy/working-activity",
+  "url": "https://github.com/ccch1mneyyy/working-activity",
+  "lang": "TypeScript",
+  "stars": 662,
+  "lic": "MIT",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 23,
+  "repo": "Nagi-ovo/dsh-ads",
+  "url": "https://github.com/Nagi-ovo/dsh-ads",
+  "lang": "TypeScript",
+  "stars": 652,
+  "lic": "BSD-3-Clause",
+  "upd": "2026-10-08"
+ },
+ {
+  "rank": 24,
+  "repo": "liustack/modsearch",
+  "url": "https://github.com/liustack/modsearch",
+  "lang": "TypeScript",
+  "stars": 618,
+  "lic": "MIT",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 25,
+  "repo": "howmp/dsh-pentest",
+  "url": "https://github.com/howmp/dsh-pentest",
+  "lang": "JavaScript",
+  "stars": 607,
+  "lic": "—",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 26,
+  "repo": "shanliuling/dsh-image-gen",
+  "url": "https://github.com/shanliuling/dsh-image-gen",
+  "lang": "TypeScript",
+  "stars": 573,
+  "lic": "Apache-2.0",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 27,
+  "repo": "1692775560/dsh-Mimir-Academic-research",
+  "url": "https://github.com/1692775560/dsh-Mimir-Academic-research",
+  "lang": "TypeScript",
+  "stars": 546,
+  "lic": "MIT",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 28,
+  "repo": "omdsh-dev/dsh-genui",
+  "url": "https://github.com/omdsh-dev/dsh-genui",
+  "lang": "TypeScript",
+  "stars": 536,
+  "lic": "MIT",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 29,
+  "repo": "FSMargoo/dsh-at-file",
+  "url": "https://github.com/FSMargoo/dsh-at-file",
+  "lang": "JavaScript",
+  "stars": 519,
+  "lic": "MIT",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 30,
+  "repo": "liangmianya/dsh-synapse",
+  "url": "https://github.com/liangmianya/dsh-synapse",
+  "lang": "JavaScript",
+  "stars": 505,
+  "lic": "MIT",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 31,
+  "repo": "EthanYoQ/Invoice-Downloader",
+  "url": "https://github.com/EthanYoQ/Invoice-Downloader",
+  "lang": "Python",
+  "stars": 502,
+  "lic": "Apache-2.0",
+  "upd": "2026-10-08"
+ },
+ {
+  "rank": 32,
+  "repo": "dream-num/dsh-univer-office",
+  "url": "https://github.com/dream-num/dsh-univer-office",
+  "lang": "TypeScript",
+  "stars": 493,
+  "lic": "Apache-2.0",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 33,
+  "repo": "syncable-dev/memtrace-public",
+  "url": "https://github.com/syncable-dev/memtrace-public",
+  "lang": "Python",
+  "stars": 489,
+  "lic": "NOASSERTION",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 34,
+  "repo": "zenstory-ai/oh-story-dsh",
+  "url": "https://github.com/zenstory-ai/oh-story-dsh",
+  "lang": "Comm…",
+  "stars": null,
+  "lic": "482",
+  "upd": "MIT"
+ },
+ {
+  "rank": 35,
+  "repo": "omdsh-dev/dsh-mnemon",
+  "url": "https://github.com/omdsh-dev/dsh-mnemon",
+  "lang": "TypeScript",
+  "stars": 477,
+  "lic": "MIT",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 36,
+  "repo": "anysearch-team/anysearch-dsh",
+  "url": "https://github.com/anysearch-team/anysearch-dsh",
+  "lang": "TypeScript",
+  "stars": 454,
+  "lic": "MIT",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 37,
+  "repo": "V1ki/dsh-plugin-subscriptions",
+  "url": "https://github.com/V1ki/dsh-plugin-subscriptions",
+  "lang": "TypeScript",
+  "stars": 434,
+  "lic": "MIT",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 38,
+  "repo": "ZJU-LLMs/OpenStory",
+  "url": "https://github.com/ZJU-LLMs/OpenStory",
+  "lang": "Python",
+  "stars": 426,
+  "lic": "Apache-2.0",
+  "upd": "2026-10-08"
+ },
+ {
+  "rank": 39,
+  "repo": "WYH66666666/DSH-Transparent-UI-Plugin",
+  "url": "https://github.com/WYH66666666/DSH-Transparent-UI-Plugin",
+  "lang": "JavaScript",
+  "stars": 413,
+  "lic": "AGPL-3.0",
+  "upd": "2026-10-08"
+ },
+ {
+  "rank": 40,
+  "repo": "saya-ch/dsh-mobile",
+  "url": "https://github.com/saya-ch/dsh-mobile",
+  "lang": "TypeScript",
+  "stars": 412,
+  "lic": "Apache-2.0",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 41,
+  "repo": "d-dev0101/open-sea-skin",
+  "url": "https://github.com/d-dev0101/open-sea-skin",
+  "lang": "Real-time ocean theme with adjustable wa…",
+  "stars": null,
+  "lic": "388",
+  "upd": "MIT"
+ },
+ {
+  "rank": 42,
+  "repo": "Han-1413141/dsh-cost-meter",
+  "url": "https://github.com/Han-1413141/dsh-cost-meter",
+  "lang": "JavaScript",
+  "stars": 384,
+  "lic": "MIT",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 43,
+  "repo": "Mars-Sea/dsh-commandcode-provider",
+  "url": "https://github.com/Mars-Sea/dsh-commandcode-provider",
+  "lang": "TypeScript",
+  "stars": 372,
+  "lic": "MIT",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 44,
+  "repo": "csyangwen/dsh-memory-evolve",
+  "url": "https://github.com/csyangwen/dsh-memory-evolve",
+  "lang": "JavaScript",
+  "stars": 371,
+  "lic": "MIT",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 45,
+  "repo": "FuRongJun-1999/dsh-memory",
+  "url": "https://github.com/FuRongJun-1999/dsh-memory",
+  "lang": "Python",
+  "stars": 361,
+  "lic": "MIT",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 46,
+  "repo": "vlln/whale-girl",
+  "url": "https://github.com/vlln/whale-girl",
+  "lang": "JavaScript",
+  "stars": 354,
+  "lic": "MIT",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 47,
+  "repo": "DDDMUC/dsh-free-search",
+  "url": "https://github.com/DDDMUC/dsh-free-search",
+  "lang": "JavaScript",
+  "stars": 351,
+  "lic": "MIT",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 48,
+  "repo": "corrinehu/dsh-workbuddy-connect",
+  "url": "https://github.com/corrinehu/dsh-workbuddy-connect",
+  "lang": "TypeScript",
+  "stars": 345,
+  "lic": "MIT",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 49,
+  "repo": "shengsheng90/DSH-taskboard",
+  "url": "https://github.com/shengsheng90/DSH-taskboard",
+  "lang": "TypeScript",
+  "stars": 332,
+  "lic": "Apache-2.0",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 50,
+  "repo": "ZSeven-W/dsh-ios",
+  "url": "https://github.com/ZSeven-W/dsh-ios",
+  "lang": "TypeScript",
+  "stars": 315,
+  "lic": "MIT",
+  "upd": "2026-10-06"
+ },
+ {
+  "rank": 51,
+  "repo": "Nagi-ovo/dsh-visualize",
+  "url": "https://github.com/Nagi-ovo/dsh-visualize",
+  "lang": "TypeScript",
+  "stars": 295,
+  "lic": "BSD-3-Clause",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 52,
+  "repo": "liguobao/ds-harness-remote",
+  "url": "https://github.com/liguobao/ds-harness-remote",
+  "lang": "TypeScript",
+  "stars": 288,
+  "lic": "—",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 53,
+  "repo": "huiliyi37/dsh-tianshu-tui",
+  "url": "https://github.com/huiliyi37/dsh-tianshu-tui",
+  "lang": "TypeScript",
+  "stars": 287,
+  "lic": "Apache-2.0",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 54,
+  "repo": "toolclub/dsh-agent-team-gui",
+  "url": "https://github.com/toolclub/dsh-agent-team-gui",
+  "lang": "TypeScript",
+  "stars": 282,
+  "lic": "MIT",
+  "upd": "2026-10-08"
+ },
+ {
+  "rank": 55,
+  "repo": "wssfk12138/dsh-damage-pulse",
+  "url": "https://github.com/wssfk12138/dsh-damage-pulse",
+  "lang": "JavaScript",
+  "stars": 253,
+  "lic": "MIT",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 56,
+  "repo": "kingOfSoySauce/dsh-liang-skin",
+  "url": "https://github.com/kingOfSoySauce/dsh-liang-skin",
+  "lang": "TypeScript",
+  "stars": 240,
+  "lic": "—",
+  "upd": "2026-10-08"
+ },
+ {
+  "rank": 57,
+  "repo": "zhu1090093659/dsh-trading",
+  "url": "https://github.com/zhu1090093659/dsh-trading",
+  "lang": "TypeScript",
+  "stars": 235,
+  "lic": "NOASSERTION",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 58,
+  "repo": "PerryLink/dsh-auto-review",
+  "url": "https://github.com/PerryLink/dsh-auto-review",
+  "lang": "TypeScript",
+  "stars": 234,
+  "lic": "Apache-2.0",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 59,
+  "repo": "dhicoc/dsh-reverse-skill",
+  "url": "https://github.com/dhicoc/dsh-reverse-skill",
+  "lang": "PowerShell",
+  "stars": 230,
+  "lic": "MIT",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 60,
+  "repo": "Fisfzy/dsh-ego-browser",
+  "url": "https://github.com/Fisfzy/dsh-ego-browser",
+  "lang": "JavaScript",
+  "stars": 217,
+  "lic": "NOASSERTION",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 61,
+  "repo": "Nwflower/dsh-chat-import",
+  "url": "https://github.com/Nwflower/dsh-chat-import",
+  "lang": "JavaScript",
+  "stars": 217,
+  "lic": "MIT",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 62,
+  "repo": "RevolutionLA/dsh-dream-skin",
+  "url": "https://github.com/RevolutionLA/dsh-dream-skin",
+  "lang": "JavaScript",
+  "stars": 217,
+  "lic": "MIT",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 63,
+  "repo": "PerryLink/dsh-research-report",
+  "url": "https://github.com/PerryLink/dsh-research-report",
+  "lang": "TypeScript",
+  "stars": 214,
+  "lic": "Apache-2.0",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 64,
+  "repo": "PerryLink/dsh-industry-research",
+  "url": "https://github.com/PerryLink/dsh-industry-research",
+  "lang": "TypeScript",
+  "stars": 213,
+  "lic": "Apache-2.0",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 65,
+  "repo": "weijiafu14/pi2dsh",
+  "url": "https://github.com/weijiafu14/pi2dsh",
+  "lang": "TypeScript",
+  "stars": 212,
+  "lic": "MIT",
+  "upd": "2026-10-07"
+ },
+ {
+  "rank": 66,
+  "repo": "e2mcc/dsh-popout-sidebar",
+  "url": "https://github.com/e2mcc/dsh-popout-sidebar",
+  "lang": "JavaScript",
+  "stars": 210,
+  "lic": "MIT",
+  "upd": "2026-10-06"
+ },
+ {
+  "rank": 67,
+  "repo": "omdsh-dev/dsh-data-agent",
+  "url": "https://github.com/omdsh-dev/dsh-data-agent",
+  "lang": "JavaScript",
+  "stars": 205,
+  "lic": "MIT",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 68,
+  "repo": "HanaAyane/dsh-reasoning-effort",
+  "url": "https://github.com/HanaAyane/dsh-reasoning-effort",
+  "lang": "TypeScript",
+  "stars": 204,
+  "lic": "MIT",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 69,
+  "repo": "Ayase34/gal-view",
+  "url": "https://github.com/Ayase34/gal-view",
+  "lang": "JavaScript",
+  "stars": 202,
+  "lic": "MIT",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 70,
+  "repo": "zh667/TokenLedger",
+  "url": "https://github.com/zh667/TokenLedger",
+  "lang": "JavaScript",
+  "stars": 202,
+  "lic": "MIT",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 71,
+  "repo": "GraySilver/dsh-evolve-modes",
+  "url": "https://github.com/GraySilver/dsh-evolve-modes",
+  "lang": "TypeScript",
+  "stars": 201,
+  "lic": "MIT",
+  "upd": "2026-10-08"
+ },
+ {
+  "rank": 72,
+  "repo": "luobosibing2/dsh-jev-plugin",
+  "url": "https://github.com/luobosibing2/dsh-jev-plugin",
+  "lang": "TypeScript",
+  "stars": 201,
+  "lic": "MIT",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 73,
+  "repo": "sixtysevenlf/dsh-blender-plugin",
+  "url": "https://github.com/sixtysevenlf/dsh-blender-plugin",
+  "lang": "Python",
+  "stars": 200,
+  "lic": "BSD-3-Clause",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 74,
+  "repo": "Hilbert-beinghappy/seektty",
+  "url": "https://github.com/Hilbert-beinghappy/seektty",
+  "lang": "TypeScript",
+  "stars": 197,
+  "lic": "MIT",
+  "upd": "2026-09-25"
+ },
+ {
+  "rank": 75,
+  "repo": "oil-oil/dsh-oil-creator",
+  "url": "https://github.com/oil-oil/dsh-oil-creator",
+  "lang": "TypeScript",
+  "stars": 197,
+  "lic": "MIT",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 76,
+  "repo": "wenbin-wb/dsh-bridge",
+  "url": "https://github.com/wenbin-wb/dsh-bridge",
+  "lang": "局域网扫码直连、Cloudflare / 自建公网隧道、微信 / QQ…",
+  "stars": null,
+  "lic": "188",
+  "upd": "MIT"
+ },
+ {
+  "rank": 77,
+  "repo": "Fishquito7/dsh-skill-mcp-panel",
+  "url": "https://github.com/Fishquito7/dsh-skill-mcp-panel",
+  "lang": "JavaScript",
+  "stars": 187,
+  "lic": "MIT",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 78,
+  "repo": "ZSeven-W/dsh-openpencil",
+  "url": "https://github.com/ZSeven-W/dsh-openpencil",
+  "lang": "TypeScript",
+  "stars": 185,
+  "lic": "MIT",
+  "upd": "2026-10-08"
+ },
+ {
+  "rank": 79,
+  "repo": "lire1131/dsh-undo-savepoint",
+  "url": "https://github.com/lire1131/dsh-undo-savepoint",
+  "lang": "JavaScript",
+  "stars": 179,
+  "lic": "MIT",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 80,
+  "repo": "cocofhu/anime-find",
+  "url": "https://github.com/cocofhu/anime-find",
+  "lang": "TypeScript",
+  "stars": 175,
+  "lic": "MIT",
+  "upd": "2026-10-08"
+ },
+ {
+  "rank": 81,
+  "repo": "ZSeven-W/dsh-android",
+  "url": "https://github.com/ZSeven-W/dsh-android",
+  "lang": "TypeScript",
+  "stars": 172,
+  "lic": "MIT",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 82,
+  "repo": "Ychris12138/dsh-usage-stats",
+  "url": "https://github.com/Ychris12138/dsh-usage-stats",
+  "lang": "JavaScript",
+  "stars": 171,
+  "lic": "MIT",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 83,
+  "repo": "KelaoHu/dsh-lowtide",
+  "url": "https://github.com/KelaoHu/dsh-lowtide",
+  "lang": "TypeScript",
+  "stars": 170,
+  "lic": "MIT",
+  "upd": "2026-10-05"
+ },
+ {
+  "rank": 84,
+  "repo": "xiajiajun516/dsh-config-manager",
+  "url": "https://github.com/xiajiajun516/dsh-config-manager",
+  "lang": "TypeScript",
+  "stars": 169,
+  "lic": "MIT",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 85,
+  "repo": "Phant0Meow/dsh-meow-memory",
+  "url": "https://github.com/Phant0Meow/dsh-meow-memory",
+  "lang": "TypeScript",
+  "stars": 167,
+  "lic": "MIT",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 86,
+  "repo": "Totoro-qaq/dsh-plugin-bridge",
+  "url": "https://github.com/Totoro-qaq/dsh-plugin-bridge",
+  "lang": "JavaScript",
+  "stars": 165,
+  "lic": "MIT",
+  "upd": "2026-10-05"
+ },
+ {
+  "rank": 87,
+  "repo": "NanmiCoder/dsh-auto-mode",
+  "url": "https://github.com/NanmiCoder/dsh-auto-mode",
+  "lang": "TypeScript",
+  "stars": 164,
+  "lic": "MIT",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 88,
+  "repo": "yjh051108/dsh-super-injector",
+  "url": "https://github.com/yjh051108/dsh-super-injector",
+  "lang": "TypeScript",
+  "stars": 164,
+  "lic": "—",
+  "upd": "2026-10-08"
+ },
+ {
+  "rank": 89,
+  "repo": "yyh-001/dsh-meme",
+  "url": "https://github.com/yyh-001/dsh-meme",
+  "lang": "JavaScript",
+  "stars": 163,
+  "lic": "MIT",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 90,
+  "repo": "a1exsun/dsh-council",
+  "url": "https://github.com/a1exsun/dsh-council",
+  "lang": "TypeScript",
+  "stars": 159,
+  "lic": "MIT",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 91,
+  "repo": "FishBottle7/opencode2dsh",
+  "url": "https://github.com/FishBottle7/opencode2dsh",
+  "lang": "TypeScript",
+  "stars": 159,
+  "lic": "MIT",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 92,
+  "repo": "ZSeven-W/dsh-crew",
+  "url": "https://github.com/ZSeven-W/dsh-crew",
+  "lang": "JavaScript",
+  "stars": 158,
+  "lic": "MIT",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 93,
+  "repo": "a86582751/dsh-nexttavern",
+  "url": "https://github.com/a86582751/dsh-nexttavern",
+  "lang": "JavaScript",
+  "stars": 156,
+  "lic": "GPL-3.0",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 94,
+  "repo": "summer1238/dsh-remote-web-gateway",
+  "url": "https://github.com/summer1238/dsh-remote-web-gateway",
+  "lang": "TypeScript",
+  "stars": 156,
+  "lic": "MIT",
+  "upd": "2026-10-07"
+ },
+ {
+  "rank": 95,
+  "repo": "beiyege-01/dsh-voice-ai-girlfriend",
+  "url": "https://github.com/beiyege-01/dsh-voice-ai-girlfriend",
+  "lang": "TypeScript",
+  "stars": 153,
+  "lic": "NOASSERTION",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 96,
+  "repo": "Rain-kl/dsh-preset-plus",
+  "url": "https://github.com/Rain-kl/dsh-preset-plus",
+  "lang": "JavaScript",
+  "stars": 153,
+  "lic": "MIT",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 97,
+  "repo": "WSL043/dsh-codex-subscription",
+  "url": "https://github.com/WSL043/dsh-codex-subscription",
+  "lang": "JavaScript",
+  "stars": 153,
+  "lic": "MIT",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 98,
+  "repo": "FylarOpen/dsh-fylar-office-editor",
+  "url": "https://github.com/FylarOpen/dsh-fylar-office-editor",
+  "lang": "TypeScript",
+  "stars": 148,
+  "lic": "—",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 99,
+  "repo": "slow-stack/mneme",
+  "url": "https://github.com/slow-stack/mneme",
+  "lang": "JavaScript",
+  "stars": 143,
+  "lic": "MIT",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 100,
+  "repo": "daha1216/dsh-adult-tension",
+  "url": "https://github.com/daha1216/dsh-adult-tension",
+  "lang": "Python",
+  "stars": 141,
+  "lic": "—",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 101,
+  "repo": "HsiangNianian/dsh-auto-continue",
+  "url": "https://github.com/HsiangNianian/dsh-auto-continue",
+  "lang": "JavaScript",
+  "stars": 141,
+  "lic": "MIT",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 102,
+  "repo": "franksong2702/dsh-codex-connect",
+  "url": "https://github.com/franksong2702/dsh-codex-connect",
+  "lang": "TypeScript",
+  "stars": 140,
+  "lic": "Apache-2.0",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 103,
+  "repo": "omdsh-dev/dsh_workflow",
+  "url": "https://github.com/omdsh-dev/dsh_workflow",
+  "lang": "TypeScript",
+  "stars": 140,
+  "lic": "MIT",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 104,
+  "repo": "PerryLink/dsh-memento",
+  "url": "https://github.com/PerryLink/dsh-memento",
+  "lang": "JavaScript",
+  "stars": 140,
+  "lic": "Apache-2.0",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 105,
+  "repo": "Tyan66666/billion-context-dsh",
+  "url": "https://github.com/Tyan66666/billion-context-dsh",
+  "lang": "TypeScript",
+  "stars": 136,
+  "lic": "MIT",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 106,
+  "repo": "omdsh-dev/dsh-annotation",
+  "url": "https://github.com/omdsh-dev/dsh-annotation",
+  "lang": "HTML",
+  "stars": 135,
+  "lic": "MIT",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 107,
+  "repo": "sorsama/deepseek-harness-mobile",
+  "url": "https://github.com/sorsama/deepseek-harness-mobile",
+  "lang": "chat, goals, approvals &amp; notif…",
+  "stars": null,
+  "lic": "135",
+  "upd": "MIT"
+ },
+ {
+  "rank": 108,
+  "repo": "01Virex/dsh-status-rotator",
+  "url": "https://github.com/01Virex/dsh-status-rotator",
+  "lang": "JavaScript",
+  "stars": 134,
+  "lic": "MIT",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 109,
+  "repo": "liceses/dsh-gitbash-preset",
+  "url": "https://github.com/liceses/dsh-gitbash-preset",
+  "lang": "JavaScript",
+  "stars": 134,
+  "lic": "MIT",
+  "upd": "2026-10-07"
+ },
+ {
+  "rank": 110,
+  "repo": "Anionex/dsh-turn-rewind",
+  "url": "https://github.com/Anionex/dsh-turn-rewind",
+  "lang": "DSH — rewind conversation and workspace s…",
+  "stars": null,
+  "lic": "131",
+  "upd": "BSD-3-Clause"
+ },
+ {
+  "rank": 111,
+  "repo": "ymh0000123/dsh-theme-endfield",
+  "url": "https://github.com/ymh0000123/dsh-theme-endfield",
+  "lang": "JavaScript",
+  "stars": 130,
+  "lic": "MIT",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 112,
+  "repo": "ZSeven-W/dsh-noema",
+  "url": "https://github.com/ZSeven-W/dsh-noema",
+  "lang": "TypeScript",
+  "stars": 130,
+  "lic": "MIT",
+  "upd": "2026-10-08"
+ },
+ {
+  "rank": 113,
+  "repo": "flymysql/dsh-remote",
+  "url": "https://github.com/flymysql/dsh-remote",
+  "lang": "JavaScript",
+  "stars": 129,
+  "lic": "MIT",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 114,
+  "repo": "hg1048596-pixel/dsh-recall-unread",
+  "url": "https://github.com/hg1048596-pixel/dsh-recall-unread",
+  "lang": "JavaScript",
+  "stars": 127,
+  "lic": "MIT",
+  "upd": "2026-10-03"
+ },
+ {
+  "rank": 115,
+  "repo": "mexiaosqwq/dsh-web-mobile",
+  "url": "https://github.com/mexiaosqwq/dsh-web-mobile",
+  "lang": "JavaScript",
+  "stars": 127,
+  "lic": "MIT",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 116,
+  "repo": "MichengAI/dsh-codex-ui",
+  "url": "https://github.com/MichengAI/dsh-codex-ui",
+  "lang": "TypeScript",
+  "stars": 125,
+  "lic": "Apache-2.0",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 117,
+  "repo": "Renzic-Stone/DSH-EasyRewrite",
+  "url": "https://github.com/Renzic-Stone/DSH-EasyRewrite",
+  "lang": "JavaScript",
+  "stars": 125,
+  "lic": "MIT",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 118,
+  "repo": "FeatherHunter/dsh-mattpocock-skills-deck",
+  "url": "https://github.com/FeatherHunter/dsh-mattpocock-skills-deck",
+  "lang": "JavaScript",
+  "stars": 124,
+  "lic": "MIT",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 119,
+  "repo": "tencent-connect/dsh-qqbot",
+  "url": "https://github.com/tencent-connect/dsh-qqbot",
+  "lang": "TypeScript",
+  "stars": 124,
+  "lic": "MIT",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 120,
+  "repo": "PerryLink/dsh-permission-rules",
+  "url": "https://github.com/PerryLink/dsh-permission-rules",
+  "lang": "TypeScript",
+  "stars": 120,
+  "lic": "Apache-2.0",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 121,
+  "repo": "Nwflower/dsh-claude-style",
+  "url": "https://github.com/Nwflower/dsh-claude-style",
+  "lang": "TypeScript",
+  "stars": 119,
+  "lic": "NOASSERTION",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 122,
+  "repo": "SiriLee/dsh-rewind",
+  "url": "https://github.com/SiriLee/dsh-rewind",
+  "lang": "TypeScript",
+  "stars": 119,
+  "lic": "MIT",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 123,
+  "repo": "Aisland-SJL/dsh-usage",
+  "url": "https://github.com/Aisland-SJL/dsh-usage",
+  "lang": "JavaScript",
+  "stars": 118,
+  "lic": "MIT",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 124,
+  "repo": "Amakurai/dsh-liketavern",
+  "url": "https://github.com/Amakurai/dsh-liketavern",
+  "lang": "TypeScript",
+  "stars": 118,
+  "lic": "MIT",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 125,
+  "repo": "MichengAI/dsh-archive-manager",
+  "url": "https://github.com/MichengAI/dsh-archive-manager",
+  "lang": "TypeScript",
+  "stars": 118,
+  "lic": "Apache-2.0",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 126,
+  "repo": "PolinniZhong/dsh-personal-center",
+  "url": "https://github.com/PolinniZhong/dsh-personal-center",
+  "lang": "JavaScript",
+  "stars": 118,
+  "lic": "MIT",
+  "upd": "2026-10-03"
+ },
+ {
+  "rank": 127,
+  "repo": "Sutera-Diffusus/dsh-whale-musume",
+  "url": "https://github.com/Sutera-Diffusus/dsh-whale-musume",
+  "lang": "JavaScript",
+  "stars": 118,
+  "lic": "MIT",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 128,
+  "repo": "pengyue-polaron/deepseek-harness-genui",
+  "url": "https://github.com/pengyue-polaron/deepseek-harness-genui",
+  "lang": "TypeScript",
+  "stars": 117,
+  "lic": "MIT",
+  "upd": "2026-10-08"
+ },
+ {
+  "rank": 129,
+  "repo": "yannicksong0106/dsh-550c-boot",
+  "url": "https://github.com/yannicksong0106/dsh-550c-boot",
+  "lang": "JavaScript",
+  "stars": 117,
+  "lic": "MIT",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 130,
+  "repo": "aa2246740/dsh-watcher",
+  "url": "https://github.com/aa2246740/dsh-watcher",
+  "lang": "JavaScript",
+  "stars": 116,
+  "lic": "MIT",
+  "upd": "2026-10-08"
+ },
+ {
+  "rank": 131,
+  "repo": "hancao97/hanai-investment-dsh",
+  "url": "https://github.com/hancao97/hanai-investment-dsh",
+  "lang": "TypeScript",
+  "stars": 115,
+  "lic": "MIT",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 132,
+  "repo": "WestFox-AwA/dsh-prompt-optimizer",
+  "url": "https://github.com/WestFox-AwA/dsh-prompt-optimizer",
+  "lang": "JavaScript",
+  "stars": 112,
+  "lic": "BSD-3-Clause",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 133,
+  "repo": "ADWMC/helm-d",
+  "url": "https://github.com/ADWMC/helm-d",
+  "lang": "Python",
+  "stars": 111,
+  "lic": "MIT",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 134,
+  "repo": "bugmaker2/dsh-plugin-template",
+  "url": "https://github.com/bugmaker2/dsh-plugin-template",
+  "lang": "TypeScript",
+  "stars": 110,
+  "lic": "MIT",
+  "upd": "2026-09-16"
+ },
+ {
+  "rank": 135,
+  "repo": "qkycir-123/dsh-run2skill",
+  "url": "https://github.com/qkycir-123/dsh-run2skill",
+  "lang": "TypeScript",
+  "stars": 110,
+  "lic": "MIT",
+  "upd": "2026-10-03"
+ },
+ {
+  "rank": 136,
+  "repo": "hanshenmesen/dsh-turn-delete",
+  "url": "https://github.com/hanshenmesen/dsh-turn-delete",
+  "lang": "TypeScript",
+  "stars": 109,
+  "lic": "MIT",
+  "upd": "2026-10-08"
+ },
+ {
+  "rank": 137,
+  "repo": "xuzhougeng/ScientificFigureLibrary",
+  "url": "https://github.com/xuzhougeng/ScientificFigureLibrary",
+  "lang": "TypeScript",
+  "stars": 109,
+  "lic": "MIT",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 138,
+  "repo": "yan-mc/dsh-normify",
+  "url": "https://github.com/yan-mc/dsh-normify",
+  "lang": "TypeScript",
+  "stars": 109,
+  "lic": "MIT",
+  "upd": "2026-10-08"
+ },
+ {
+  "rank": 139,
+  "repo": "cpj-dev/dsh-plugin-cc",
+  "url": "https://github.com/cpj-dev/dsh-plugin-cc",
+  "lang": "JavaScript",
+  "stars": 106,
+  "lic": "MIT",
+  "upd": "2026-09-12"
+ },
+ {
+  "rank": 140,
+  "repo": "MichengAI/dsh-agency-agents",
+  "url": "https://github.com/MichengAI/dsh-agency-agents",
+  "lang": "TypeScript",
+  "stars": 106,
+  "lic": "Apache-2.0",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 141,
+  "repo": "PerryLink/jevcore",
+  "url": "https://github.com/PerryLink/jevcore",
+  "lang": "TypeScript",
+  "stars": 106,
+  "lic": "Apache-2.0",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 142,
+  "repo": "Stormycry-cryp/dsh-AuthInOne",
+  "url": "https://github.com/Stormycry-cryp/dsh-AuthInOne",
+  "lang": "JavaScript",
+  "stars": 106,
+  "lic": "MIT",
+  "upd": "2026-10-06"
+ },
+ {
+  "rank": 143,
+  "repo": "wqty123/dsh-browser",
+  "url": "https://github.com/wqty123/dsh-browser",
+  "lang": "JavaScript",
+  "stars": 106,
+  "lic": "MIT",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 144,
+  "repo": "AskTheWay/dsh-auto-memory",
+  "url": "https://github.com/AskTheWay/dsh-auto-memory",
+  "lang": "TypeScript",
+  "stars": 105,
+  "lic": "MIT",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 145,
+  "repo": "kanneiren/dsh-network-settings",
+  "url": "https://github.com/kanneiren/dsh-network-settings",
+  "lang": "DeepSeek Harness network diagnostics, proxy detection and r…",
+  "stars": null,
+  "lic": "105",
+  "upd": "MIT"
+ },
+ {
+  "rank": 146,
+  "repo": "liyupi/dsh-kun-like-pet",
+  "url": "https://github.com/liyupi/dsh-kun-like-pet",
+  "lang": "JavaScript",
+  "stars": 105,
+  "lic": "MIT",
+  "upd": "2026-10-08"
+ },
+ {
+  "rank": 147,
+  "repo": "Aik358/dsh-auto-memory",
+  "url": "https://github.com/Aik358/dsh-auto-memory",
+  "lang": "JavaScript",
+  "stars": 104,
+  "lic": "BSD-3-Clause",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 148,
+  "repo": "fandc520/dsh-comfyui",
+  "url": "https://github.com/fandc520/dsh-comfyui",
+  "lang": "TypeScript",
+  "stars": 104,
+  "lic": "MIT",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 149,
+  "repo": "Tabbit-Browser/dsh-tabbit",
+  "url": "https://github.com/Tabbit-Browser/dsh-tabbit",
+  "lang": "TypeScript",
+  "stars": 104,
+  "lic": "MIT",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 150,
+  "repo": "LayneChai/superpowers-dsh",
+  "url": "https://github.com/LayneChai/superpowers-dsh",
+  "lang": "JavaScript",
+  "stars": 103,
+  "lic": "—",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 151,
+  "repo": "Duskriver/dsh-opencode-go",
+  "url": "https://github.com/Duskriver/dsh-opencode-go",
+  "lang": "TypeScript",
+  "stars": 102,
+  "lic": "MIT",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 152,
+  "repo": "MichengAI/dsh-skills-manager",
+  "url": "https://github.com/MichengAI/dsh-skills-manager",
+  "lang": "JavaScript",
+  "stars": 102,
+  "lic": "Apache-2.0",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 153,
+  "repo": "dickpy/dsh-imagegen",
+  "url": "https://github.com/dickpy/dsh-imagegen",
+  "lang": "TypeScript",
+  "stars": 101,
+  "lic": "Apache-2.0",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 154,
+  "repo": "SLin-code/dsh-custom-skin",
+  "url": "https://github.com/SLin-code/dsh-custom-skin",
+  "lang": "TypeScript",
+  "stars": 101,
+  "lic": "MIT",
+  "upd": "2026-10-03"
+ },
+ {
+  "rank": 155,
+  "repo": "XieRW/dsh-beauty-skins",
+  "url": "https://github.com/XieRW/dsh-beauty-skins",
+  "lang": "TypeScript",
+  "stars": 101,
+  "lic": "MIT",
+  "upd": "2026-10-03"
+ },
+ {
+  "rank": 156,
+  "repo": "yj-liuzepeng/dsh-project-brain",
+  "url": "https://github.com/yj-liuzepeng/dsh-project-brain",
+  "lang": "JavaScript",
+  "stars": 101,
+  "lic": "MIT",
+  "upd": "2026-10-08"
+ },
+ {
+  "rank": 157,
+  "repo": "jsdvjx/dsh-strata",
+  "url": "https://github.com/jsdvjx/dsh-strata",
+  "lang": "JavaScript",
+  "stars": 100,
+  "lic": "MIT",
+  "upd": "2026-09-30"
+ },
+ {
+  "rank": 158,
+  "repo": "sjh9714/dsh-win32",
+  "url": "https://github.com/sjh9714/dsh-win32",
+  "lang": "TypeScript",
+  "stars": 100,
+  "lic": "MIT",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 159,
+  "repo": "titanwings/dsh-automation",
+  "url": "https://github.com/titanwings/dsh-automation",
+  "lang": "TypeScript",
+  "stars": 100,
+  "lic": "MIT",
+  "upd": "2026-10-08"
+ },
+ {
+  "rank": 160,
+  "repo": "amlyczz/dsh-agy-link",
+  "url": "https://github.com/amlyczz/dsh-agy-link",
+  "lang": "TypeScript",
+  "stars": 99,
+  "lic": "MIT",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 161,
+  "repo": "xuedai-mayi/dsh-wenshan",
+  "url": "https://github.com/xuedai-mayi/dsh-wenshan",
+  "lang": "TypeScript",
+  "stars": 98,
+  "lic": "MIT",
+  "upd": "2026-09-30"
+ },
+ {
+  "rank": 162,
+  "repo": "dclichang2022/dsh-green-meter",
+  "url": "https://github.com/dclichang2022/dsh-green-meter",
+  "lang": "JavaScript",
+  "stars": 97,
+  "lic": "MIT",
+  "upd": "2026-09-18"
+ },
+ {
+  "rank": 163,
+  "repo": "Tasihi89/dsh-talk-map",
+  "url": "https://github.com/Tasihi89/dsh-talk-map",
+  "lang": "JavaScript",
+  "stars": 97,
+  "lic": "MIT",
+  "upd": "2026-10-04"
+ },
+ {
+  "rank": 164,
+  "repo": "WSK-build/DSHBox",
+  "url": "https://github.com/WSK-build/DSHBox",
+  "lang": "Kotlin",
+  "stars": 95,
+  "lic": "GPL-3.0",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 165,
+  "repo": "bruc3van/dsh-desktop",
+  "url": "https://github.com/bruc3van/dsh-desktop",
+  "lang": "JavaScript",
+  "stars": 93,
+  "lic": "MIT",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 166,
+  "repo": "oil-oil/dsh-vision",
+  "url": "https://github.com/oil-oil/dsh-vision",
+  "lang": "TypeScript",
+  "stars": 90,
+  "lic": "MIT",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 167,
+  "repo": "THU-MAIC/dsh-openmaic",
+  "url": "https://github.com/THU-MAIC/dsh-openmaic",
+  "lang": "JavaScript",
+  "stars": 89,
+  "lic": "MIT",
+  "upd": "2026-10-08"
+ },
+ {
+  "rank": 168,
+  "repo": "akira399/dsh-novel-writer",
+  "url": "https://github.com/akira399/dsh-novel-writer",
+  "lang": "TypeScript",
+  "stars": 88,
+  "lic": "MIT",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 169,
+  "repo": "PKUfudawei/dsh-capability-menu",
+  "url": "https://github.com/PKUfudawei/dsh-capability-menu",
+  "lang": "TypeScript",
+  "stars": 88,
+  "lic": "Apache-2.0",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 170,
+  "repo": "moon09300731/dsh-approval-gate",
+  "url": "https://github.com/moon09300731/dsh-approval-gate",
+  "lang": "JavaScript",
+  "stars": 87,
+  "lic": "MIT",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 171,
+  "repo": "omdsh-dev/dsh-notification",
+  "url": "https://github.com/omdsh-dev/dsh-notification",
+  "lang": "JavaScript",
+  "stars": 87,
+  "lic": "MIT",
+  "upd": "2026-10-08"
+ },
+ {
+  "rank": 172,
+  "repo": "starsstreaming/beautiCode",
+  "url": "https://github.com/starsstreaming/beautiCode",
+  "lang": "JavaScript",
+  "stars": 87,
+  "lic": "MIT",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 173,
+  "repo": "youdotcom-oss/agent-skills",
+  "url": "https://github.com/youdotcom-oss/agent-skills",
+  "lang": "TypeScript",
+  "stars": 87,
+  "lic": "MIT",
+  "upd": "2026-10-08"
+ },
+ {
+  "rank": 174,
+  "repo": "Fishsb/dsh-prompt-enhancer",
+  "url": "https://github.com/Fishsb/dsh-prompt-enhancer",
+  "lang": "JavaScript",
+  "stars": 86,
+  "lic": "—",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 175,
+  "repo": "dingminhua/dsh-connect-workbuddy",
+  "url": "https://github.com/dingminhua/dsh-connect-workbuddy",
+  "lang": "TypeScript",
+  "stars": 85,
+  "lic": "MIT",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 176,
+  "repo": "lamost423/dsh-maze",
+  "url": "https://github.com/lamost423/dsh-maze",
+  "lang": "…",
+  "stars": null,
+  "lic": "85",
+  "upd": "MIT"
+ },
+ {
+  "rank": 177,
+  "repo": "PensiveFei/dsh-secure-audit",
+  "url": "https://github.com/PensiveFei/dsh-secure-audit",
+  "lang": "JavaScript",
+  "stars": 85,
+  "lic": "MIT",
+  "upd": "2026-09-30"
+ },
+ {
+  "rank": 178,
+  "repo": "Awu12277/dsh-stock-watch",
+  "url": "https://github.com/Awu12277/dsh-stock-watch",
+  "lang": "JavaScript",
+  "stars": 83,
+  "lic": "MIT",
+  "upd": "2026-10-08"
+ },
+ {
+  "rank": 179,
+  "repo": "Viy1204/recruiting-copilot",
+  "url": "https://github.com/Viy1204/recruiting-copilot",
+  "lang": "JavaScript",
+  "stars": 83,
+  "lic": "MIT",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 180,
+  "repo": "aa2246740/dsh-better-display",
+  "url": "https://github.com/aa2246740/dsh-better-display",
+  "lang": "JavaScript",
+  "stars": 82,
+  "lic": "NOASSERTION",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 181,
+  "repo": "Kytolly/dsh-evolve-in-git",
+  "url": "https://github.com/Kytolly/dsh-evolve-in-git",
+  "lang": "TypeScript",
+  "stars": 82,
+  "lic": "MIT",
+  "upd": "2026-10-08"
+ },
+ {
+  "rank": 182,
+  "repo": "Laplace-bit/dsh-smooth-stream",
+  "url": "https://github.com/Laplace-bit/dsh-smooth-stream",
+  "lang": "JavaScript",
+  "stars": 82,
+  "lic": "MIT",
+  "upd": "2026-10-08"
+ },
+ {
+  "rank": 183,
+  "repo": "rison114514/dsh-endfield-ui",
+  "url": "https://github.com/rison114514/dsh-endfield-ui",
+  "lang": "JavaScript",
+  "stars": 82,
+  "lic": "—",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 184,
+  "repo": "dingminhua/dsh-connect-trae",
+  "url": "https://github.com/dingminhua/dsh-connect-trae",
+  "lang": "TypeScript",
+  "stars": 79,
+  "lic": "MIT",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 185,
+  "repo": "openma-ai/Martty",
+  "url": "https://github.com/openma-ai/Martty",
+  "lang": "Rust",
+  "stars": 79,
+  "lic": "MIT",
+  "upd": "2026-10-06"
+ },
+ {
+  "rank": 186,
+  "repo": "AITabby/dockyard-dsh",
+  "url": "https://github.com/AITabby/dockyard-dsh",
+  "lang": "JavaScript",
+  "stars": 78,
+  "lic": "MIT",
+  "upd": "2026-10-02"
+ },
+ {
+  "rank": 187,
+  "repo": "dsh-wsl-workspace-maintainers/dsh-wsl-workspace",
+  "url": "https://github.com/dsh-wsl-workspace-maintainers/dsh-wsl-workspace",
+  "lang": "TypeScript",
+  "stars": 77,
+  "lic": "MIT",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 188,
+  "repo": "chiphoton/DeepSeek-Harness-Video-Director",
+  "url": "https://github.com/chiphoton/DeepSeek-Harness-Video-Director",
+  "lang": "JavaScript",
+  "stars": 76,
+  "lic": "MIT",
+  "upd": "2026-10-07"
+ },
+ {
+  "rank": 189,
+  "repo": "EricWang1358/dsh-web-studyhub",
+  "url": "https://github.com/EricWang1358/dsh-web-studyhub",
+  "lang": "JavaScript",
+  "stars": 76,
+  "lic": "MIT",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 190,
+  "repo": "plolpl789/dsh-raw-html",
+  "url": "https://github.com/plolpl789/dsh-raw-html",
+  "lang": "JavaScript",
+  "stars": 76,
+  "lic": "MIT",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 191,
+  "repo": "WM-CODER/custom-first-control-prompt",
+  "url": "https://github.com/WM-CODER/custom-first-control-prompt",
+  "lang": "JavaScript",
+  "stars": 76,
+  "lic": "MIT",
+  "upd": "2026-10-05"
+ },
+ {
+  "rank": 192,
+  "repo": "Yan-Zero/dsh-codex",
+  "url": "https://github.com/Yan-Zero/dsh-codex",
+  "lang": "TypeScript",
+  "stars": 76,
+  "lic": "Apache-2.0",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 193,
+  "repo": "anweat/dsh-web-search-pro",
+  "url": "https://github.com/anweat/dsh-web-search-pro",
+  "lang": "TypeScript",
+  "stars": 75,
+  "lic": "MIT",
+  "upd": "2026-10-07"
+ },
+ {
+  "rank": 194,
+  "repo": "kenz1117/dsh-ui-usage-billing",
+  "url": "https://github.com/kenz1117/dsh-ui-usage-billing",
+  "lang": "TypeScript",
+  "stars": 75,
+  "lic": "MIT",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 195,
+  "repo": "PolinniZhong/dsh-omi-voice",
+  "url": "https://github.com/PolinniZhong/dsh-omi-voice",
+  "lang": "Swift",
+  "stars": 75,
+  "lic": "MIT",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 196,
+  "repo": "mrRisega/dsh-remote",
+  "url": "https://github.com/mrRisega/dsh-remote",
+  "lang": "JavaScript",
+  "stars": 74,
+  "lic": "NOASSERTION",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 197,
+  "repo": "PerryLink/dsh-mcp-panel",
+  "url": "https://github.com/PerryLink/dsh-mcp-panel",
+  "lang": "TypeScript",
+  "stars": 74,
+  "lic": "Apache-2.0",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 198,
+  "repo": "feibi-mochi/deepseek-harness-control-center",
+  "url": "https://github.com/feibi-mochi/deepseek-harness-control-center",
+  "lang": "JavaScript",
+  "stars": 73,
+  "lic": "MIT",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 199,
+  "repo": "linhut/gongwen-skill",
+  "url": "https://github.com/linhut/gongwen-skill",
+  "lang": "Python",
+  "stars": 73,
+  "lic": "MIT",
+  "upd": "2026-10-09"
+ },
+ {
+  "rank": 200,
+  "repo": "dream12347/dsh-session-manager",
+  "url": "https://github.com/dream12347/dsh-session-manager",
+  "lang": "TypeScript",
+  "stars": 71,
+  "lic": "MIT",
+  "upd": "2026-10-09"
+ }
+]

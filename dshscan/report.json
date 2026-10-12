@@ -1,0 +1,32 @@
+{
+  "tool": "DShScan",
+  "version": "0.1.0",
+  "target": {
+    "kind": "dir",
+    "raw": "D:\\QYD\\dsh-file\\dsh-liang-skin",
+    "displayName": "dsh-liang-skin",
+    "localPath": "D:\\QYD\\dsh-file\\dsh-liang-skin",
+    "metadata": null
+  },
+  "risk_score": 30,
+  "severity": "medium",
+  "safe_to_install": false,
+  "recommendation": "建议暂不安装或仅在隔离环境安装：存在 1 条高风险发现，需人工审计后决定。",
+  "findings": [
+    {
+      "id": "R011",
+      "severity": "high",
+      "category": "dsh-client-side-code",
+      "title": "Browser-side malicious client code",
+      "evidence": "lib/client.js: input/key logging listener (addEventListener(\"change\")",
+      "recommendation": "Audit client.mjs / browser-injected code for keylogging, clipboard theft, external beaconing, DOM injection, or crypto-mining. Client code runs in the user's DSH web session.",
+      "source": "static",
+      "rule": "R011"
+    }
+  ],
+  "findings_truncated": false,
+  "llm_used": false,
+  "scan_mode": "static",
+  "scan_note": "仅静态扫描，非完整扫描。",
+  "metadata": null
+}
