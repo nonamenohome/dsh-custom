@@ -3,6 +3,9 @@
 > 目标：把本仓库收录的 DSH 定制（插件、皮肤补丁、技能、配置）部署到一台新电脑。
 > 仓库：`https://github.com/nonamenohome/dsh-custom` （分支 `main`）
 > **内容就在仓库根目录**，clone 下来直接照下面的步骤做即可。
+>
+> ⚠️ **2026-10 起实际环境是 `desktop` profile（官方 Electron 客户端）**，本文的 `web` profile 步骤仍有效但已不是当前配置。
+> 当前环境的插件清单、设置与自研插件见 [`dsh-config/README.md`](./dsh-config/README.md) 与 [`plugins/`](./plugins)。
 
 ---
 

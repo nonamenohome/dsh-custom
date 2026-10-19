@@ -12,7 +12,9 @@ DSH 本体是开源项目 —— [deepseek-ai/deepseek-harness](https://github.c
 | 目录 | 内容 |
 |---|---|
 | `MIGRATION.md` | **迁移到新机器的完整步骤（先看这个）** |
-| `dsh-config/` | DSH 配置快照：插件清单、cordis 补丁、插件管理器偏好 |
+| `dsh-config/` | DSH 配置快照：**web + desktop 两个 profile**、家目录设置、插件清单 —— 先看 [`dsh-config/README.md`](./dsh-config/README.md) |
+| `plugins/dsh-boot-animation-settings/` | 自研插件：**设置页里选开机动画** + 启动黑幕遮挡 + 动画结束回对话 |
+| `plugin-patches/` | 第三方插件的本地补丁脚本：插件库标题栏、壁纸引擎启动公告 |
 | `skills/` | Agent 技能：`archify` / `dws` / `find-skills` |
 | `skin-patch/` | 皮肤透明度补丁全套：原版备份 + 改好的产物 + 带断言、可重复执行的补丁脚本 |
 | `dsh-backup/` | 源码 CSS 深色主题定制（`deep-sea-theme.patch`） |
@@ -30,8 +32,10 @@ DSH 本体是开源项目 —— [deepseek-ai/deepseek-harness](https://github.c
 
 ## 快速开始
 
-1. 新机器上装好 DSH 本体
-2. 照 [`MIGRATION.md`](./MIGRATION.md) 逐步恢复配置、技能与皮肤补丁
+1. 新机器上装好 DSH 本体（官方桌面版，当前 `0.2.1-rc.2`）
+2. 照 [`dsh-config/README.md`](./dsh-config/README.md) 恢复 **desktop profile**（当前实际使用）
+3. 旧版 `dsh web` 环境的恢复步骤仍见 [`MIGRATION.md`](./MIGRATION.md)
+4. 第三方插件装好后，跑一遍 [`plugin-patches/`](./plugin-patches/README.md) 里的补丁脚本
 
 ---
 

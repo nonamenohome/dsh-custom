@@ -1,0 +1,39 @@
+{
+  "name": "dsh-profile-desktop",
+  "private": true,
+  "dependencies": {
+    "@linxin666/dsh-client-ui-skin-center": "^0.4.7",
+    "@liustack/modlens": "^3.26.6",
+    "@smalltailqwq/dsh-client-ui-skin-deep-whale-manager": "^0.1.6",
+    "@smalltailqwq/dsh-client-ui-skin-maid-atelier": "^0.1.7",
+    "@smalltailqwq/dsh-client-ui-skin-orca-link": "^0.1.7",
+    "@yunmiao/studymate": "^1.0.0",
+    "dsh-boot-animation-pro": "link:D:/QYD/dsh-file/vendor/dsh-boot-animation-pro",
+    "dsh-boot-animation-settings": "link:D:/QYD/dsh-file/vendor/dsh-boot-animation-settings",
+    "dsh-claude-style": "^0.16.2",
+    "dsh-client-liang-intensity-skin": "link:D:/QYD/dsh-file/dsh-liang-skin",
+    "dsh-plugin-smooth-stream": "link:D:/QYD/dsh-file/vendor/dsh-plugin-smooth-stream",
+    "dsh-plugin-wallpaper-engine": "^1.3.3",
+    "dsh-plugins-catalog": "link:D:/QYD/dsh-file/vendor/dsh-plugins-catalog",
+    "dsh-whale-widget": "link:D:/QYD/dsh-file/vendor/dsh-whale-widget",
+    "dsh-whale-girl": "link:D:/QYD/dsh-file/vendor/dsh-whale-girl"
+  },
+  "dsh": {
+    "profile": {
+      "bundles": [
+        "@deepseek-ai/dsh-base",
+        "@deepseek-ai/dsh-web-app",
+        "@liustack/modlens",
+        "@yunmiao/studymate",
+        "dsh-plugins-catalog",
+        "@linxin666/dsh-client-ui-skin-center",
+        "dsh-plugin-wallpaper-engine",
+        "dsh-boot-animation-pro",
+        "dsh-plugin-smooth-stream",
+        "dsh-boot-animation-settings",
+        "dsh-claude-style",
+        "dsh-whale-girl"
+      ]
+    }
+  }
+}
