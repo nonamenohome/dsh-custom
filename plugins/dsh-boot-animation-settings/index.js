@@ -1,5 +1,5 @@
 /**
- * dsh-boot-animation-settings — host half.
+ * dsh-boot-animation-settings 鈥?host half.
  *
  * Two jobs:
  *
@@ -9,7 +9,7 @@
  *
  * 2. A pre-boot cover, injected into the index document. DSH draws its own
  *    `[data-dsh-boot]` kernel page first, and the intro overlay only exists
- *    after the client boots — without a cover the user sees the kernel spinner
+ *    after the client boots 鈥?without a cover the user sees the kernel spinner
  *    (and a flash of the shell) before the clip starts. The cover is painted
  *    black from the first parsed body byte and removed the moment the intro
  *    overlay appears, so EVERY clip starts from black instead of from the
@@ -17,7 +17,7 @@
  *
  *    Removal is triple-guarded so a failure can never leave a black window:
  *      - the injected script removes it when `.dbap-root` shows up,
- *      - the script also removes it after 1.8s even if no intro plays,
+ *      - the script also removes it after 4.5s even if no intro plays,
  *      - CSS fades it out at 9s by itself if the script never runs.
  */
 export const name = 'dsh-boot-animation-settings'
@@ -36,8 +36,8 @@ const COVER_CSS = [
 const COVER_HTML = `<div id="${COVER_ID}" aria-hidden="true"></div>`
 
 /**
- * Body script: reveal on the intro overlay, or 1.8s after boot if the intro
- * decided not to play. Kept ES5 and dependency-free — it runs before the app.
+ * Body script: reveal on the intro overlay, or 4.5s after boot if the intro
+ * decided not to play. Kept ES5 and dependency-free 鈥?it runs before the app.
  */
 const COVER_JS = [
   '(function(){try{',

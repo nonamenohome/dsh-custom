@@ -3,7 +3,7 @@
 这里放的是**对装好的第三方插件做的小改动**，不是插件源码。每个脚本：
 
 - 只做精确字符串替换，匹配数不是 1 就报错退出，不会写坏文件；
-- 第一次运行会把原文件备份到脚本同级的 `backup/`；
+- 第一次运行会把原文件备份到脚本里写死的目录（见下文每个脚本的说明）；
 - 插件更新/`dsh plugin update` 会覆盖 `node_modules`，**升级后要重跑一次**。
 
 ## `catalog-titlebar.mjs` — 插件库全屏页让出 Windows 标题栏
@@ -38,6 +38,6 @@ node plugin-patches\catalog-titlebar.mjs
 node plugin-patches\wallpaper-engine-disable-notice.mjs
 ```
 
-备份在 `balance-research\wallpaper-backup\client.js`（脚本第一次运行时写入），
+备份由脚本第一次运行时写在仓库外的 `D:\QYD\dsh-file\balance-research\wallpaper-backup\client.js`，
 还原就把备份拷回
 `~/.dsh/profiles/desktop/node_modules/dsh-plugin-wallpaper-engine/lib/client.js`。
