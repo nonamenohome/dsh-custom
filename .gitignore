@@ -1,0 +1,20 @@
+# 依赖
+node_modules/
+package-lock.json.bak
+
+# 构建产物
+dist/
+build/icon-*.png.tmp
+
+# 运行时数据（含个人条目，绝不入库）
+PortableData/
+*.log
+.tmp/
+
+# 文档中间产物
+docs/_cover.html
+
+# 系统
+Thumbs.db
+desktop.ini
+.DS_Store

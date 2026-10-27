@@ -1,0 +1,11 @@
+﻿import pathlib
+p = pathlib.Path(r"D:\QYD\dsh-file\apps\quickpie\main.js")
+s = p.read_text(encoding="utf-8")
+before = s.count("persist();")
+s = s.replace("persist();\n    broadcastItems();", "saveState();\n    broadcast();")
+s = s.replace("persist();", "saveState();")
+s = s.replace("broadcastItems();", "broadcast();")
+p.write_text(s, encoding="utf-8")
+print("替换 persist:", before)
+print("剩余 persist:", s.count("persist()"))
+print("剩余 broadcastItems:", s.count("broadcastItems"))

@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="light">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'" />
+  <title>QuickPie</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ======================= 轮盘 ======================= -->
+  <div class="wheel-root" id="wheelRoot" hidden>
+    <div class="wheel-zoom" id="wheelZoom">
+      <div class="wheel-scale" id="wheelScale">
+        <svg class="wheel-ring" id="wheelRing" viewBox="0 0 760 760" aria-hidden="true"></svg>
+        <div class="wheel-slots" id="wheelSlots"></div>
+        <div class="wheel-chips" id="wheelChips"></div>
+        <div class="wheel-hub" id="wheelHub">
+          <img class="hub-logo" id="hubLogo" src="logo.png" alt="" />
+          <div class="hub-eyebrow" id="hubEyebrow">QUICKPIE</div>
+          <div class="hub-title" id="hubTitle">轮盘夹</div>
+          <div class="hub-sub" id="hubSub">正在载入…</div>
+          <div class="hub-dots" id="hubDots"></div>
+        </div>
+      </div>
+    </div>
+    <div class="drop-veil" id="dropVeil"><span>松手就加入轮盘</span></div>
+    <div class="toast" id="toast"></div>
+  </div>
+
+  <!-- ======================= 管理器 ======================= -->
+  <div class="manager-root" id="managerRoot" hidden>
+    <header class="mhead">
+      <div class="mhead-brand">
+        <span class="logo" aria-hidden="true"></span>
+        <div class="brand-text">
+          <strong>QuickPie</strong>
+          <span>轮盘夹</span>
+        </div>
+      </div>
+      <div class="mhead-actions">
+        <button class="btn ghost" id="btnOpenWheel" title="在光标处打开轮盘">
+          打开轮盘 <kbd id="hotkeyKbd">Ctrl+Shift+Space</kbd>
+        </button>
+        <div class="winbtns">
+          <button class="winbtn" id="btnMin" title="最小化" aria-label="最小化">—</button>
+          <button class="winbtn danger" id="btnClose" title="关闭" aria-label="关闭">✕</button>
+        </div>
+      </div>
+    </header>
+
+    <div class="mbody">
+      <section class="pane list-pane">
+        <div class="toolbar">
+          <label class="search">
+            <svg viewBox="0 0 20 20" width="15" height="15" aria-hidden="true">
+              <circle cx="8.6" cy="8.6" r="5.6" fill="none" stroke="currentColor" stroke-width="1.6" />
+              <path d="M12.9 12.9 17 17" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+            </svg>
+            <input id="searchInput" type="search" placeholder="搜索名称、路径或域名" spellcheck="false" />
+            <kbd>/</kbd>
+          </label>
+          <button class="btn primary" id="btnAdd">＋ 添加</button>
+        </div>
+
+        <div class="filters" id="filters">
+          <button class="chip is-on" data-filter="all">全部 <b data-count="all">0</b></button>
+          <button class="chip" data-filter="folder">目录 <b data-count="folder">0</b></button>
+          <button class="chip" data-filter="url">网址 <b data-count="url">0</b></button>
+          <button class="chip" data-filter="app">应用 <b data-count="app">0</b></button>
+          <button class="chip" data-filter="file">文件 <b data-count="file">0</b></button>
+        </div>
+
+        <div class="itemlist" id="itemList"></div>
+
+        <div class="listfoot">
+          <span id="listHint">把文件、文件夹、网址拖到窗口里即可添加</span>
+          <button class="linkbtn" id="btnPaste">从剪贴板添加</button>
+        </div>
+      </section>
+
+      <aside class="pane side-pane">
+        <nav class="tabs" id="tabs">
+          <button class="tab is-on" data-tab="item">条目</button>
+          <button class="tab" data-tab="settings">设置</button>
+        </nav>
+
+        <div class="tabpane" id="tabItem">
+          <div class="editor-empty" id="editorEmpty">
+            <div class="glyph" aria-hidden="true"></div>
+            <p>选中左侧条目的 <b>编辑</b>，或点右上角 <b>＋ 添加</b>。</p>
+            <ul class="tips">
+              <li><kbd>/</kbd> 搜索</li>
+              <li><kbd>Ctrl</kbd>+<kbd>N</kbd> 新建</li>
+              <li>滚轮翻页</li>
+            </ul>
+          </div>
+
+          <form class="editor-form" id="editorForm" autocomplete="off" hidden>
+            <div class="preview">
+              <div class="preview-icon" id="previewIcon"></div>
+              <div class="preview-meta">
+                <div class="preview-name" id="previewName">新条目</div>
+                <div class="preview-type" id="previewType">目录</div>
+              </div>
+              <button type="button" class="btn ghost small" id="btnIconAuto" title="按当前目标重新抓取图标">重抓</button>
+              <button type="button" class="btn ghost small" id="btnIconCustom" title="从图片文件指定图标">自定义图标</button>
+            </div>
+
+            <label class="field">
+              <span>名称</span>
+              <input id="fName" maxlength="60" placeholder="显示在轮盘上的名字" />
+            </label>
+
+            <div class="field">
+              <span>类型</span>
+              <div class="segmented" id="fType">
+                <button type="button" data-type="folder">目录</button>
+                <button type="button" data-type="url">网址</button>
+                <button type="button" data-type="app">应用</button>
+                <button type="button" data-type="file">文件</button>
+                <button type="button" data-type="group">分组</button>
+              </div>
+            </div>
+
+            <label class="field">
+              <span>目标</span>
+              <div class="input-row">
+                <input id="fTarget" placeholder="D:\路径 或 https://example.com" spellcheck="false" />
+                <button type="button" class="btn ghost small" id="btnBrowse">浏览</button>
+              </div>
+            </label>
+
+            <div class="field" id="childField" hidden>
+              <span>二级条目 <em>悬停分组时在轮盘外侧展开</em></span>
+              <div class="child-list" id="childList"></div>
+              <div class="child-hint">把左边列表里的条目<b>拖到这个分组上</b>即可变成二级条目</div>
+            </div>
+
+            <label class="field" id="argsField">
+              <span>启动参数 <em>可选</em></span>
+              <input id="fArgs" placeholder="例：--incognito" spellcheck="false" />
+            </label>
+
+            <div class="editor-actions">
+              <button type="button" class="linkbtn danger" id="btnDelete">删除</button>
+              <span class="grow"></span>
+              <button type="button" class="btn ghost" id="btnCancel">取消</button>
+              <button type="submit" class="btn primary" id="btnSave">保存</button>
+            </div>
+          </form>
+        </div>
+
+        <div class="tabpane" id="tabSettings" hidden>
+          <div class="settings">
+            <section class="sblock">
+              <h3>呼出快捷键</h3>
+              <p class="hint">点击后按下组合键，<kbd>Esc</kbd> 取消。</p>
+              <button class="hotkey-btn" id="hotkeyBtn"><kbd id="hotkeyValue">Ctrl+Shift+Space</kbd></button>
+              <p class="hint warn" id="hotkeyWarn" hidden></p>
+            </section>
+
+            <section class="sblock row">
+              <div>
+                <h3>开机自启</h3>
+                <p class="hint">登录 Windows 后静默驻留托盘。</p>
+              </div>
+              <label class="switch"><input type="checkbox" id="autoLaunch" /><i></i></label>
+            </section>
+
+            <section class="sblock">
+              <h3>外观</h3>
+              <div class="segmented" id="themeSeg">
+                <button type="button" data-theme="auto">跟随系统</button>
+                <button type="button" data-theme="light">浅色</button>
+                <button type="button" data-theme="dark">深色</button>
+              </div>
+            </section>
+
+            <section class="sblock">
+              <h3>数据</h3>
+              <div class="btnrow">
+                <button class="btn ghost small" id="btnExport">导出 JSON</button>
+                <button class="btn ghost small" id="btnImport">导入 JSON</button>
+                <button class="btn ghost small" id="btnDataDir">数据目录</button>
+              </div>
+              <p class="hint mono" id="dataDirHint"></p>
+            </section>
+
+            <footer class="sabout">QuickPie <span id="appVersion">0.1.0</span> · MIT · 轮盘最多 12 项 / 屏</footer>
+          </div>
+        </div>
+      </aside>
+    </div>
+    <div class="toast manager-toast" id="mToast"></div>
+  </div>
+
+  <script src="wheel.js"></script>
+  <script src="manager.js"></script>
+</body>
+</html>
