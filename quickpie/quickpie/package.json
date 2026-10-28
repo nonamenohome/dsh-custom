@@ -1,0 +1,50 @@
+{
+  "name": "quickpie",
+  "productName": "QuickPie",
+  "version": "0.4.1",
+  "description": "轮盘式快捷启动器：文件目录 / 网址 / 应用，光标处弹出，一点即开",
+  "main": "main.js",
+  "author": "local",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "shot": "electron . --shot",
+    "pack": "electron-builder --win portable"
+  },
+  "devDependencies": {
+    "electron": "33.4.11",
+    "electron-builder": "25.1.8"
+  },
+  "build": {
+    "appId": "com.local.quickpie",
+    "productName": "QuickPie",
+    "asar": false,
+    "compression": "maximum",
+    "directories": {
+      "output": "dist",
+      "buildResources": "build"
+    },
+    "files": [
+      "main.js",
+      "preload.js",
+      "app/**/*",
+      "build/icon.ico"
+    ],
+    "win": {
+      "icon": "build/icon.ico",
+      "target": [
+        {
+          "target": "portable",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "artifactName": "QuickPie-${version}.${ext}"
+    },
+    "portable": {
+      "requestExecutionLevel": "user",
+      "artifactName": "QuickPie-${version}.${ext}"
+    }
+  }
+}
