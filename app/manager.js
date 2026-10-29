@@ -15,6 +15,7 @@
   const toastEl = $('mToast');
 
   const TYPE_LABEL = {
+    chat: '会话',
     group: '分组', folder: '目录', url: '网址', app: '应用', file: '文件' };
   const ICONS = {
     open: '<svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 3.5h3v3"/><path d="M12.5 3.5 7.6 8.4"/><path d="M11.6 9.4v2.3a1 1 0 0 1-1 1H4.4a1 1 0 0 1-1-1V5.5a1 1 0 0 1 1-1h2.3"/></svg>',
@@ -259,6 +260,13 @@
     $('fTarget').value = draft.target || '';
     $('fArgs').value = draft.args || '';
     $('argsField').style.display = draft.type === 'app' ? '' : 'none';
+    const isChat = draft.type === 'chat';
+    $('queryField').hidden = !isChat;
+    $('queryField').style.display = isChat ? '' : 'none';
+    if (isChat) $('fQuery').value = draft.query || '';
+    $('fTarget').placeholder = isChat
+      ? '留空即可（默认用微信 D:\\Weixin\\Weixin.exe）'
+      : 'D:\\路径 或 https://example.com';
     const isGroup = draft.type === 'group';
     $('childField').hidden = !isGroup;
     $('childField').style.display = isGroup ? '' : 'none';
@@ -399,12 +407,16 @@
     const target = ($('fTarget').value || '').trim();
     const argsInput = ($('fArgs').value || '').trim();
     const isGroup = draft.type === 'group';
-    if (!target && !isGroup) { toast('请填写目标路径或网址'); $('fTarget').focus(); return; }
+    const isChat = draft.type === 'chat';
+    if (!target && !isGroup && !isChat) {
+      toast('请填写目标路径或网址'); $('fTarget').focus(); return;
+    }
     const payload = {
       type: draft.type,
       name: nameInput,
       target,
       args: argsInput,
+      query: ($('fQuery') ? $('fQuery').value : '').trim(),
       icon: draft.icon || undefined,
       children: isGroup ? (draft.children || []) : undefined,
     };
@@ -586,6 +598,10 @@
     if (!S.editing) return;
     S.editing.target = e.target.value;
   });
+  $('fQuery').addEventListener('input', (e) => {
+    if (S.editing) S.editing.query = e.target.value;
+  });
+
   $('fArgs').addEventListener('input', (e) => {
     if (!S.editing) return;
     S.editing.args = e.target.value;

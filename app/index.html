@@ -121,6 +121,7 @@
                 <button type="button" data-type="app">应用</button>
                 <button type="button" data-type="file">文件</button>
                 <button type="button" data-type="group">分组</button>
+                <button type="button" data-type="chat">会话</button>
               </div>
             </div>
 
@@ -137,6 +138,11 @@
               <div class="child-list" id="childList"></div>
               <div class="child-hint">把左边列表里的条目<b>拖到这个分组上</b>即可变成二级条目</div>
             </div>
+
+            <label class="field" id="queryField" hidden>
+              <span>会话名 <em>微信里显示的名字</em></span>
+              <input id="fQuery" placeholder="例：文件传输助手" spellcheck="false" />
+            </label>
 
             <label class="field" id="argsField">
               <span>启动参数 <em>可选</em></span>
