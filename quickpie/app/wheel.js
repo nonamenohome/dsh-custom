@@ -74,6 +74,9 @@
   }
 
   function displayTarget(item) {
+    if (item.type === 'chat' || item.type === 'wechat') {
+      return `微信会话 · ${item.query || item.name}`;
+    }
     if (item.type === 'url') {
       return String(item.target).replace(/^https?:\/\//i, '').replace(/\/$/, '');
     }
@@ -606,6 +609,7 @@
   /* ---------------- 快速添加：Ctrl+V / 就地输入 ---------------- */
 
   let quickBox = null;
+  let quickMode = 'auto';   // auto = 普通条目，chat = 微信会话
 
   function closeQuickInput() {
     if (!quickBox) return;
@@ -625,17 +629,26 @@
       quickBox.querySelector('input').focus();
       return;
     }
+    quickMode = 'auto';
     const wrap = document.createElement('div');
     wrap.className = 'quick-input';
     const grp = hotGroup();
     wrap.innerHTML = `
-      <input type="text" spellcheck="false" placeholder="${grp ? `添加到「${grp.name}」：粘贴网址 / 路径，回车` : '粘贴或输入网址 / 路径，回车添加'}" />
-      <kbd>Enter</kbd>`;
+      <span class="quick-mode">条目</span>
+      <input type="text" spellcheck="false" placeholder="${grp ? `添加到「${grp.name}」：回车确认，Tab 切成微信会话` : '粘贴名字或路径；Tab 切成微信会话，回车添加'}" />
+      <kbd>Tab</kbd><kbd>Enter</kbd>`;
     const input = wrap.querySelector('input');
     input.value = initial;
     input.addEventListener('keydown', async (ev) => {
       ev.stopPropagation();
       if (ev.key === 'Escape') { closeQuickInput(); return; }
+      if (ev.key === 'Tab') {
+        ev.preventDefault();
+        quickMode = quickMode === 'auto' ? 'chat' : 'auto';
+        wrap.querySelector('.quick-mode').textContent = quickMode === 'chat' ? '微信会话' : '条目';
+        wrap.classList.toggle('is-chat', quickMode === 'chat');
+        return;
+      }
       if (ev.key !== 'Enter') return;
       const value = input.value.trim();
       if (!value) { closeQuickInput(); return; }
@@ -658,7 +671,10 @@
         }
         return;
       }
-      const added = await api.addItems(list.map((target) => ({ target })));
+      const payload = list.map((target) => (quickMode === 'chat'
+        ? { type: 'chat', name: target, query: target, target: '' }
+        : { target }));
+      const added = await api.addItems(payload);
       if (added && added.length) {
         await reload();
         const first = S.items.findIndex((it) => it.id === added[0].id);

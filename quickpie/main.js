@@ -111,6 +111,7 @@ function toItem(raw) {
     args: String(raw.args || ''),
     exe: raw.exe || null,
     icon: raw.icon || null,
+    query: String(raw.query || ''),
     children: Array.isArray(raw.children) ? raw.children.map((c) => toItem(c)) : [],
     createdAt: raw.createdAt || Date.now(),
   };
@@ -213,6 +214,20 @@ async function faviconFor(target) {
   return dataUrl;
 }
 
+/// 微信 exe：target 无效时按常见安装位置找
+function defaultWeChatExe() {
+  const candidates = [
+    'D:\\Weixin\\Weixin.exe',
+    'C:\\Program Files\\Tencent\\Weixin\\Weixin.exe',
+    'C:\\Program Files (x86)\\Tencent\\WeChat\\WeChat.exe',
+    'C:\\Program Files\\Tencent\\WeChat\\WeChat.exe',
+  ];
+  for (const p of candidates) {
+    try { if (fs.existsSync(p)) return p; } catch (_) { /* ignore */ }
+  }
+  return candidates[0];
+}
+
 function helperTmp() {
   const dir = path.join(app.getPath('userData'), 'tmp');
   try { fs.mkdirSync(dir, { recursive: true }); } catch (_) { /* ignore */ }
@@ -279,6 +294,16 @@ async function resolveIcon(type, target, extra = []) {
     const icon = await iconViaPowerShell(p);
     if (icon) return icon;
   }
+
+  // 会话类条目兜底：用内置的微信图标，避免显示成字母牌
+  if (type === 'chat' || type === 'wechat') {
+    try {
+      const bundled = path.join(ROOT, 'app', 'wechat-icon.png');
+      if (fs.existsSync(bundled)) {
+        return `data:image/png;base64,${fs.readFileSync(bundled).toString('base64')}`;
+      }
+    } catch (_) { /* ignore */ }
+  }
   return null;
 }
 
@@ -295,7 +320,11 @@ async function hydrateIcons() {
   walk(state.items);
 
   for (const item of pending) {
-    const icon = await resolveIcon(item.type, item.exe || item.target,
+    const isChat = item.type === 'chat' || item.type === 'wechat';
+    const iconTarget = isChat
+      ? (item.target && fs.existsSync(item.target) ? item.target : defaultWeChatExe())
+      : (item.exe || item.target);
+    const icon = await resolveIcon(item.type, iconTarget,
       item.shortcut ? [item.shortcut] : []);
     if (icon) {
       item.icon = icon;
@@ -387,7 +416,7 @@ function startWindowHelper() {
 }
 
 function windowsForItem(item) {
-  if (!item || item.type !== 'app') return [];
+  if (!item || (item.type !== 'app' && item.type !== 'chat' && item.type !== 'wechat')) return [];
   const source = item.exe || item.target;
   const base = String(source || '').split(/[\\/]/).pop().toLowerCase();
   if (!base.endsWith('.exe')) return [];
@@ -414,18 +443,56 @@ async function openItem(item) {
   if (item.type === 'group') {
     const target = String(item.target || '').trim();
     if (!target) throw new Error('这个分组没有设置默认目标（悬停可以选子项）');
+    // 目标是个正在运行的程序：唤醒已有窗口，别再启动一个
+    if (target.toLowerCase().endsWith('.exe')) {
+      let running = windowsForItem({ type: 'app', target, exe: item.exe || null });
+      for (let i = 0; i < 6 && !running.length; i += 1) {
+        await new Promise((r) => setTimeout(r, 250));   // 等窗口助手第一轮数据
+        running = windowsForItem({ type: 'app', target, exe: item.exe || null });
+      }
+      if (running.length) {
+        focusWindowByPid(running[0].p);
+        return 'group->focus-existing';
+      }
+    }
     const err = await shell.openPath(target);
     if (err) throw new Error(err);
     return 'group->openPath';
   }
   const target = String(item.target || '').trim();
-  if (!target) throw new Error('条目没有目标地址');
+  const isChatItem = item.type === 'chat' || item.type === 'wechat';
+  if (!target && !isChatItem) throw new Error('条目没有目标地址');
 
   if (item.type === 'url') {
     await shell.openExternal(normalizeUrl(target));
     return 'openExternal';
   }
+
+  // 会话：优先切到同名的独立聊天窗口，否则唤醒主窗并在搜索框填好会话名
+  if (item.type === 'chat' || item.type === 'wechat') {
+    const query = String(item.query || item.name || '').trim();
+    if (!query) throw new Error('这个会话条目没有填会话名');
+    clipboard.writeText(query);
+    const scriptPath = path.join(ROOT, 'app', 'wechat-chat.ps1');
+    const exe = (target && fs.existsSync(target)) ? target : defaultWeChatExe();
+    const child = spawn('powershell.exe',
+      ['-NoProfile', '-NonInteractive', '-ExecutionPolicy', 'Bypass', '-File', scriptPath,
+       '-Query', query, '-Exe', exe],
+      { env: { ...process.env, TEMP: helperTmp(), TMP: helperTmp() }, windowsHide: true });
+    child.unref();
+    return 'wechat-chat';
+  }
   if (!fs.existsSync(target)) throw new Error(`路径不存在：${target}`);
+
+  // 程序已经在跑：唤醒已有窗口，不再启动第二个实例
+  const lowerTarget = target.toLowerCase();
+  if (lowerTarget.endsWith('.exe') && (item.type === 'app' || item.type === 'group')) {
+    const running = windowsForItem({ type: 'app', target, exe: item.exe || null });
+    if (running.length) {
+      focusWindowByPid(running[0].p);
+      return 'focus-existing';
+    }
+  }
 
   // 文件夹 / 应用 / 文件：交给系统 shell。
   // 实测：spawn('explorer.exe') 在这里会以 code=1 退出、不开窗口；shell.openPath 正常。
@@ -708,7 +775,8 @@ async function opAddItems(payload) {
   const added = [];
   for (const raw of list) {
     const target = String(raw?.target ?? '').trim();
-    if (!target) continue;
+    const rawChat = raw && (raw.type === 'chat' || raw.type === 'wechat');
+    if (!target && !rawChat) continue;
     let item = toItem({ ...raw, target });
     const expanded = expandShortcut(item.target);
     if (expanded && expanded.url) {
@@ -719,7 +787,10 @@ async function opAddItems(payload) {
       if (expanded.args && !item.args) item.args = expanded.args;
       if (!String(raw.name || '').trim()) item.name = autoName('app', expanded.exe);
     }
-    item.icon = raw.icon || (await resolveIcon(item.type, item.exe || item.target,
+    const iconTarget = (item.type === 'chat' || item.type === 'wechat')
+      ? (item.target && fs.existsSync(item.target) ? item.target : defaultWeChatExe())
+      : (item.exe || item.target);
+    item.icon = raw.icon || (await resolveIcon(item.type, iconTarget,
       item.shortcut ? [item.shortcut] : []));
     state.items.push(item);
     added.push(item);
@@ -772,7 +843,9 @@ function opReorder(ids) {
 function opProbeMissing() {
   const missing = [];
   for (const item of state.items) {
-    if (item.type === 'url') continue;
+    // 网址与会话没有本地路径，不参与存在性检查
+    if (item.type === 'url' || item.type === 'chat' || item.type === 'wechat') continue;
+    if (!String(item.target || '').trim()) continue;
     let ok = false;
     try { ok = fs.existsSync(item.target); } catch (_) { ok = false; }
     if (!ok) missing.push(item.id);
