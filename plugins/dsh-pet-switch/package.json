@@ -1,0 +1,29 @@
+{
+  "name": "dsh-pet-switch",
+  "version": "0.2.2",
+  "private": true,
+  "description": "桌宠总开关：设置里一个分区勾选哪些桌宠插件参与启动（写回 profile 的 dsh.profile.bundles），另带本地兜底页面 http://127.0.0.1:3081/。",
+  "type": "module",
+  "main": "index.js",
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "page.html",
+    "cordis.patch.yml"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true
+    }
+  },
+  "license": "MIT"
+}

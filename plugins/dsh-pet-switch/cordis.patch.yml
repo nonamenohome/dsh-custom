@@ -1,0 +1,8 @@
+# dsh-pet-switch —— 桌宠总开关
+#
+# 只新增自己的一行 entry，不接管任何官方包。
+# 本插件没有客户端半侧：它在本机 127.0.0.1 上起一个只读+写 bundles 的小页面，
+# 用来勾选「哪些桌宠插件参与启动」。
+- insert:
+    - id: pet-switch
+      name: 'dsh-pet-switch'
