@@ -1,0 +1,28 @@
+{
+  "name": "dsh-qq-persona",
+  "version": "0.1.0",
+  "private": true,
+  "description": "在 DSH 设置里加一个「QQ 人格」入口，直接编辑 dsh-qq-bridge 机器人（大肥鱼）的人格文件 AGENTS.md。",
+  "type": "module",
+  "main": "index.js",
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "cordis.patch.yml"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true
+    }
+  },
+  "license": "MIT"
+}

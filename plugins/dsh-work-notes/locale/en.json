@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Work Notes",
+    "description": "A work sticky-note board on the right edge of the window: quick capture, pin, complete, color-code. Notes are stored in work-notes.json under the DSH data directory, so they survive restarts and port changes."
+  }
+}

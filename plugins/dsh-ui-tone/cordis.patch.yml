@@ -1,0 +1,7 @@
+# dsh-ui-tone —— 上下文面板降噪
+#
+# 只新增自己的一行 entry。宿主半侧空壳；客户端半侧给 dsh-context 的仪表盘
+# 打一个作用域 class，然后用 CSS 覆盖把配色/发光/动画压下去。
+- insert:
+    - id: ui-tone
+      name: 'dsh-ui-tone'

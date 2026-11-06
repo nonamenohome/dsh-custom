@@ -1,0 +1,209 @@
+                error: data && data.ok === false ? ((data.error || data.message) || "加载失败") : ""
+              });
+            })
+            .catch(function (e) {
+              setDetail({
+                loading: false,
+                images: [],
+                readme_zh: "",
+                readme_en: "",
+                error: String((e && e.message) || e || "加载失败")
+              });
+            });
+        }
+      }
+      var zh = p.description_zh || "";
+      var en = p.description_en || "";
+      return h("div", {
+        onClick: function (e) {
+          var t = e && e.target;
+          if (t && t.closest && t.closest("button, a, input, textarea")) return;
+          onOpenDetail();
+        },
+        style: {
+          border: "1px solid " + LINE,
+          background: BG,
+          borderRadius: 8,
+          padding: 10,
+          overflow: "hidden",
+          maxWidth: "100%",
+          boxSizing: "border-box",
+          minWidth: 0,
+          height: "100%",
+          display: "flex",
+          flexDirection: "column",
+          cursor: "pointer"
+        }
+      },
+        cover ? h("img", {
+          src: cover,
+          alt: "",
+          style: {
+            width: "100%",
+            height: "auto",
+            maxHeight: hCover || "none",
+            aspectRatio: "2 / 1",
+            objectFit: "contain",
+            objectPosition: "center top",
+            background: "rgba(0,0,0,0.06)",
+            borderRadius: 6,
+            marginBottom: 8,
+            display: "block"
+          }
+        }) : null,
+        h("div", { style: { display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap" } },
+          h("span", { style: { fontWeight: 600, fontSize: 14, color: FG } }, p.name || full),
+          installed ? h("span", {
+            style: {
+              fontSize: 11,
+              padding: "1px 6px",
+              borderRadius: 999,
+              border: "1px solid " + (p.warning ? ERR : OK),
+              color: p.warning ? ERR : OK,
+              background: BG
+            }
+          }, p.warning ? "无法加载" : "已安装") : null,
+          (hasUpdate || p.newer) ? h("span", {
+            style: {
+              fontSize: 11,
+              padding: "1px 6px",
+              borderRadius: 999,
+              border: "1px solid " + BRAND,
+              color: BRAND,
+              background: BG
+            }
+          }, "有更新") : null,
+          p.official ? h("span", {
+            style: {
+              fontSize: 11,
+              padding: "1px 6px",
+              borderRadius: 999,
+              border: "1px solid " + BRAND,
+              color: BRAND,
+              background: BG
+            }
+          }, "官方") : null,
+          (p.install_method === "npm" || p.npm_name) ? h("span", {
+            style: { fontSize: 11, padding: "1px 6px", borderRadius: 999, border: "1px solid " + BRAND, color: BRAND, background: BG }
+          }, "npm") : null,
+          h("span", { style: { color: MUTED, fontSize: 12 } }, "stars " + (p.stars || 0)),
+          (!enabled && toggleable) ? h("span", {
+            style: {
+              fontSize: 11,
+              padding: "1px 6px",
+              borderRadius: 999,
+              border: "1px solid " + MUTED,
+              color: MUTED,
+              background: BG
+            }
+          }, "已禁用") : null
+        ),
+        h("div", { style: { color: MUTED, fontSize: 12, marginTop: 4 } },
+          (author ? author + " · " : "") + (p.category_zh || p.category || "")
+        ),
+        (p.current || p.latest) ? h("div", { style: { color: MUTED, fontSize: 12, marginTop: 2 } },
+          "当前 " + (p.current || "-") + (p.latest ? " → 最新 " + p.latest : "")
+        ) : null,
+        (p.install_method === "npm" || p.npm_name) ? h("div", { style: { color: MUTED, fontSize: 11, marginTop: 2 } }, "请用 npm 包名安装，不要用 github:") : null,
+        linkOnly ? h("div", { style: { color: MUTED, fontSize: 11, marginTop: 2 } }, "这是目录索引，不能当插件安装") : null,
+        p.status === "error" ? h("div", { style: { color: MUTED, fontSize: 11, marginTop: 2 } }, "检查失败") : null,
+        h("div", {
+          style: {
+            marginTop: 6,
+            color: FG,
+            fontSize: 12,
+            lineHeight: "18px",
+            display: "-webkit-box",
+            WebkitLineClamp: 3,
+            WebkitBoxOrient: "vertical",
+            overflow: "hidden",
+            minHeight: 54,
+            height: 54
+          }
+        }, p.description || zh || en || ""),
+        h("button", {
+          type: "button",
+          title: cmd ? "点击复制安装命令" : "",
+          onClick: cmd ? onCopy : undefined,
+          style: Object.assign({}, cmdStyle(), { visibility: cmd ? "visible" : "hidden" })
+        }, copied ? "已复制" : (cmd || " ")),
+        h("div", { style: { marginTop: "auto", paddingTop: 10, display: "flex", gap: 8, flexWrap: "wrap" } },
+          (!installed && !linkOnly) ? h("button", {
+            type: "button",
+            disabled: waiting || !id,
+            onClick: function () { if (install) install(id, p); },
+            style: btnStyle(waiting || !id, true)
+          }, waiting ? "安装中…" : "安装") : null,
+          (installed && hasUpdate && onUpdate) ? h("button", {
+            type: "button",
+            disabled: busyUp || !id,
+            onClick: function (e) { if (e && e.stopPropagation) e.stopPropagation(); onUpdate(id); },
+            style: btnStyle(busyUp || !id, true)
+          }, busyUp ? "更新中…" : "更新") : null,
+          installed ? h("button", {
+            type: "button",
+            disabled: busyUn || isSelf || !id || p.removable === false,
+            title: isSelf ? "这是插件库本身" : "卸载此插件",
+            onClick: function () { if (uninstall) uninstall(id, p); },
+            style: btnStyle(busyUn || isSelf || !id || p.removable === false, false, !isSelf)
+          }, busyUn ? "卸载中…" : "卸载") : null,
+          (installed && toggleable) ? h("button", {
+            type: "button",
+            disabled: busyUn,
+            title: enabled ? "禁用后重启不再加载此插件" : "启用此插件",
+            onClick: function (e) { if (e && e.stopPropagation) e.stopPropagation(); if (toggle) toggle(p); },
+            style: btnStyle(busyUn, !enabled)
+          }, enabled ? "禁用" : "启用") : null,
+          h("button", {
+            type: "button",
+            onClick: function (e) { if (e && e.stopPropagation) e.stopPropagation(); onOpenDetail(); },
+            style: btnStyle(false, false)
+          }, "详情")
+        ),
+        open ? h(DetailModal, {
+          p: p,
+          detail: detail,
+          onClose: function () { setOpen(false); }
+        }) : null,
+        note ? h("div", {
+          style: { marginTop: 8, color: note.ok ? OK : ERR, fontSize: 12 }
+        }, note.text) : null,
+        p.warning ? h("div", {
+          style: { marginTop: 8, color: ERR, fontSize: 12, lineHeight: "18px" }
+        },
+          p.warning,
+          (p.issues_url || full) ? h("div", { style: { marginTop: 6 } },
+            h("a", {
+              href: p.issues_url || ("https://github.com/" + full + "/issues"),
+              target: "_blank",
+              rel: "noreferrer",
+              onClick: function (e) {
+                if (e && e.preventDefault) e.preventDefault();
+                if (e && e.stopPropagation) e.stopPropagation();
+                openExternal(p.issues_url || ("https://github.com/" + full + "/issues"));
+              },
+              style: { color: BRAND, fontWeight: 650 }
+            }, "联系作者")
+          ) : null
+        ) : null
+      );
+    }
+
+    function CatalogDrawer(props) {
+      var onClose = props.onClose;
+      var coverSize = props.coverSize || "large";
+      var st = useState([]);
+      var plugins = st[0], setPlugins = st[1];
+      var ld = useState(true);
+      var loading = ld[0], setLoading = ld[1];
+      var er = useState("");
+      var error = er[0], setError = er[1];
+      var dr = useState("");
+      var draft = dr[0], setDraft = dr[1];
+      var qst = useState("");
+      var query = qst[0], setQuery = qst[1];
+      var sc = useState("all");
+      var scope = sc[0], setScope = sc[1];
+      var ct = useState("all");
+      var cat = ct[0], setCat = ct[1];
+      var bz = useState({});

@@ -1,0 +1,6 @@
+# dsh-qq-persona —— 设置里的「QQ 人格」入口
+#
+# 只新增自己的一行 entry；人格读写由本包自己的 HTTP 路由提供。
+- insert:
+    - id: qq-persona
+      name: 'dsh-qq-persona'

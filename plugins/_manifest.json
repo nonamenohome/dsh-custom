@@ -149,78 +149,78 @@
     {
         "name":  "dsh-ui-tone",
         "version":  "0.1.0",
-        "source":  "link(未启用)",
-        "dir":  "",
-        "synced":  false
+        "source":  "link",
+        "dir":  "plugins/dsh-ui-tone",
+        "synced":  true
     },
     {
         "name":  "dsh-work-notes",
         "version":  "1.0.0",
-        "source":  "link(未启用)",
-        "dir":  "",
-        "synced":  false
+        "source":  "link",
+        "dir":  "plugins/dsh-work-notes",
+        "synced":  true
     },
     {
         "name":  "dsh-qq-bridge",
         "version":  "0.1.3",
-        "source":  "link(未启用)",
-        "dir":  "",
-        "synced":  false
+        "source":  "link",
+        "dir":  "plugins/dsh-qq-bridge",
+        "synced":  true
     },
     {
         "name":  "dsh-plugins-catalog",
         "version":  "0.2.15",
-        "source":  "link(未启用)",
-        "dir":  "",
-        "synced":  false
+        "source":  "link",
+        "dir":  "plugins/dsh-plugins-catalog",
+        "synced":  true
     },
     {
         "name":  "dsh-qq-persona",
         "version":  "0.1.0",
-        "source":  "link(未启用)",
-        "dir":  "",
-        "synced":  false
+        "source":  "link",
+        "dir":  "plugins/dsh-qq-persona",
+        "synced":  true
     },
     {
         "name":  "dsh-settings-tidy",
         "version":  "0.1.0",
-        "source":  "link(未启用)",
-        "dir":  "",
-        "synced":  false
+        "source":  "link",
+        "dir":  "plugins/dsh-settings-tidy",
+        "synced":  true
     },
     {
         "name":  "dsh-whale-widget",
         "version":  "0.4.2",
-        "source":  "link(未启用)",
-        "dir":  "",
-        "synced":  false
+        "source":  "link",
+        "dir":  "plugins/dsh-whale-widget",
+        "synced":  true
     },
     {
         "name":  "dsh-client-liang-intensity-skin",
         "version":  "0.1.4",
-        "source":  "link(未启用)",
-        "dir":  "",
-        "synced":  false
+        "source":  "link",
+        "dir":  "plugins/dsh-client-liang-intensity-skin",
+        "synced":  true
     },
     {
         "name":  "dsh-whale-girl",
         "version":  "0.4.4",
-        "source":  "link(未启用)",
-        "dir":  "",
-        "synced":  false
+        "source":  "link",
+        "dir":  "plugins/dsh-whale-girl",
+        "synced":  true
     },
     {
         "name":  "dsh-boot-animation-settings",
         "version":  "0.1.0",
-        "source":  "link(未启用)",
-        "dir":  "",
-        "synced":  false
+        "source":  "link",
+        "dir":  "plugins/dsh-boot-animation-settings",
+        "synced":  true
     },
     {
         "name":  "dsh-boot-animation-pro",
         "version":  "1.0.0",
-        "source":  "link(未启用)",
-        "dir":  "",
-        "synced":  false
+        "source":  "link",
+        "dir":  "plugins/dsh-boot-animation-pro",
+        "synced":  true
     }
 ]

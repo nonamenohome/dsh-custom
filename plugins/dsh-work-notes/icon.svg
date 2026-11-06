@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Work notes">
+  <defs>
+    <linearGradient id="wn-paper" x1="10" y1="8" x2="54" y2="58" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffd764"/>
+      <stop offset="1" stop-color="#f0a63a"/>
+    </linearGradient>
+  </defs>
+  <path d="M16 9h32a9 9 0 0 1 9 9v21L45 55H16a9 9 0 0 1-9-9V18a9 9 0 0 1 9-9Z" fill="url(#wn-paper)"/>
+  <path d="M57 39 45 55v-7a9 9 0 0 1 9-9h3Z" fill="#d98a1c" opacity=".45"/>
+  <path d="M18 23h27M18 31h21" stroke="#6b4a05" stroke-width="3.4" stroke-linecap="round" opacity=".7"/>
+  <path d="m18 40 4.4 4.6L32 35" fill="none" stroke="#6b4a05" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" opacity=".7"/>
+  <path d="M36 40h9" stroke="#6b4a05" stroke-width="3.4" stroke-linecap="round" opacity=".7"/>
+</svg>

@@ -1,0 +1,7 @@
+# dsh-settings-tidy —— 设置导航整理
+#
+# 只新增自己的一行 entry。宿主半侧是空壳（这个插件只在浏览器里干活），
+# 客户端半侧在设置面板挂载后整理左侧导航：隐藏重复项、把同类排在一起。
+- insert:
+    - id: settings-tidy
+      name: 'dsh-settings-tidy'

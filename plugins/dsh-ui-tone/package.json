@@ -1,0 +1,28 @@
+{
+  "name": "dsh-ui-tone",
+  "version": "0.1.0",
+  "private": true,
+  "description": "给 dsh-context 的「上下文」面板降噪：把霓虹配色压成灰调、去掉发光与重边框、停掉入场动画。纯客户端 CSS 覆盖，不改插件源码。",
+  "type": "module",
+  "main": "index.js",
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "cordis.patch.yml"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true
+    }
+  },
+  "license": "MIT"
+}
