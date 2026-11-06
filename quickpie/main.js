@@ -112,6 +112,8 @@ function toItem(raw) {
     exe: raw.exe || null,
     icon: raw.icon || null,
     query: String(raw.query || ''),
+    platform: String(raw.platform || ''),
+    hotkey: String(raw.hotkey || ''),
     children: Array.isArray(raw.children) ? raw.children.map((c) => toItem(c)) : [],
     createdAt: raw.createdAt || Date.now(),
   };
@@ -182,6 +184,48 @@ function saveState() {
   }
 }
 
+let itemHotkeys = new Map();   // accel -> itemId
+
+function findAnyItemById(id) {
+  for (const it of state.items) {
+    if (it.id === id) return it;
+    for (const k of it.children || []) if (k.id === id) return k;
+  }
+  return null;
+}
+
+/// 给「条目自带快捷键」注册/重注册（不动轮盘主热键）
+function registerItemHotkeys() {
+  for (const accel of itemHotkeys.keys()) {
+    try { globalShortcut.unregister(accel); } catch (_) { /* ignore */ }
+  }
+  itemHotkeys.clear();
+
+  const all = [];
+  for (const it of state.items) {
+    all.push(it);
+    for (const k of it.children || []) all.push(k);
+  }
+
+  for (const it of all) {
+    const accel = String(it.hotkey || '').trim();
+    if (!accel) continue;
+    if (accel === state.settings.hotkey) continue;      // 别抢轮盘主热键
+    try {
+      const ok = globalShortcut.register(accel, () => {
+        const target = findAnyItemById(it.id);
+        if (!target) return;
+        openItem(target).catch((err) => console.log('[hotkey] 打开失败', err.message));
+      });
+      if (ok) itemHotkeys.set(accel, it.id);
+      else console.log('[hotkey] 被占用，注册失败:', accel, it.name);
+    } catch (err) {
+      console.log('[hotkey] 异常:', accel, err.message);
+    }
+  }
+  console.log('[hotkey] 已注册条目快捷键:', itemHotkeys.size);
+}
+
 function broadcast() {
   for (const win of [wheelWin, managerWin]) {
     if (win && !win.isDestroyed()) win.webContents.send('store:changed');
@@ -215,6 +259,19 @@ async function faviconFor(target) {
 }
 
 /// 微信 exe：target 无效时按常见安装位置找
+/// 唤醒（或启动）一个 exe：走 app-summon.ps1，托盘隐藏的窗口也能拉出来
+function summonExe(exePath) {
+  const script = path.join(ROOT, 'app', 'app-summon.ps1');
+  if (!fs.existsSync(script)) return false;
+  const exeName = path.basename(exePath, path.extname(exePath));
+  const child = spawn('powershell.exe',
+    ['-NoProfile', '-NonInteractive', '-ExecutionPolicy', 'Bypass', '-File', script,
+     '-Exe', exePath, '-ProcName', exeName],
+    { env: { ...process.env, TEMP: helperTmp(), TMP: helperTmp() }, windowsHide: true });
+  child.unref();
+  return true;
+}
+
 function defaultWeChatExe() {
   const candidates = [
     'D:\\Weixin\\Weixin.exe',
@@ -443,17 +500,9 @@ async function openItem(item) {
   if (item.type === 'group') {
     const target = String(item.target || '').trim();
     if (!target) throw new Error('这个分组没有设置默认目标（悬停可以选子项）');
-    // 目标是个正在运行的程序：唤醒已有窗口，别再启动一个
-    if (target.toLowerCase().endsWith('.exe')) {
-      let running = windowsForItem({ type: 'app', target, exe: item.exe || null });
-      for (let i = 0; i < 6 && !running.length; i += 1) {
-        await new Promise((r) => setTimeout(r, 250));   // 等窗口助手第一轮数据
-        running = windowsForItem({ type: 'app', target, exe: item.exe || null });
-      }
-      if (running.length) {
-        focusWindowByPid(running[0].p);
-        return 'group->focus-existing';
-      }
+    // 目标是个程序：走唤醒器（已运行则把窗口拉出来，未运行则启动）
+    if (target.toLowerCase().endsWith('.exe') && summonExe(target)) {
+      return 'group->summon';
     }
     const err = await shell.openPath(target);
     if (err) throw new Error(err);
@@ -474,6 +523,20 @@ async function openItem(item) {
     if (!query) throw new Error('这个会话条目没有填会话名');
     clipboard.writeText(query);
     const scriptPath = path.join(ROOT, 'app', 'wechat-chat.ps1');
+    const platform = item.platform
+      || (/dingtalk/i.test(target) ? 'dingtalk' : 'wechat');
+    if (platform === 'dingtalk') {
+      const dingExe = (target && fs.existsSync(target))
+        ? target
+        : 'D:\\DingDing\\main\\current_new\\DingTalk.exe';
+      const dingScript = path.join(ROOT, 'app', 'dingtalk-chat.ps1');
+      const c = spawn('powershell.exe',
+        ['-NoProfile', '-NonInteractive', '-ExecutionPolicy', 'Bypass', '-File', dingScript,
+         '-Query', query, '-Exe', dingExe],
+        { env: { ...process.env, TEMP: helperTmp(), TMP: helperTmp() }, windowsHide: true });
+      c.unref();
+      return 'dingtalk-chat';
+    }
     const exe = (target && fs.existsSync(target)) ? target : defaultWeChatExe();
     const child = spawn('powershell.exe',
       ['-NoProfile', '-NonInteractive', '-ExecutionPolicy', 'Bypass', '-File', scriptPath,
@@ -484,14 +547,10 @@ async function openItem(item) {
   }
   if (!fs.existsSync(target)) throw new Error(`路径不存在：${target}`);
 
-  // 程序已经在跑：唤醒已有窗口，不再启动第二个实例
+  // 程序：走唤醒器（已运行则唤出窗口，未运行则启动）
   const lowerTarget = target.toLowerCase();
-  if (lowerTarget.endsWith('.exe') && (item.type === 'app' || item.type === 'group')) {
-    const running = windowsForItem({ type: 'app', target, exe: item.exe || null });
-    if (running.length) {
-      focusWindowByPid(running[0].p);
-      return 'focus-existing';
-    }
+  if (lowerTarget.endsWith('.exe') && (item.type === 'app' || item.type === 'group') && summonExe(target)) {
+    return 'summon';
   }
 
   // 文件夹 / 应用 / 文件：交给系统 shell。
@@ -797,6 +856,7 @@ async function opAddItems(payload) {
   }
   if (added.length) {
     saveState();
+    registerItemHotkeys();
     broadcast();
     // 缺图标的立刻后台补，补到一张广播一张（轮盘实时刷，不用重启）
     if (added.some((it) => !it.icon)) hydrateIcons().catch(() => {});
@@ -814,6 +874,7 @@ async function opUpdateItem(id, patch = {}) {
     item.icon = await resolveIcon(item.type, item.target);
   }
   saveState();
+  registerItemHotkeys();
   broadcast();
   return { ok: true, item };
 }
@@ -821,7 +882,7 @@ async function opUpdateItem(id, patch = {}) {
 function opRemoveItem(id) {
   const before = state.items.length;
   state.items = state.items.filter((it) => it.id !== id);
-  if (state.items.length !== before) { saveState(); broadcast(); }
+  if (state.items.length !== before) { saveState(); registerItemHotkeys(); broadcast(); }
   return { ok: true, removed: before - state.items.length };
 }
 
@@ -1246,6 +1307,7 @@ if (!gotLock) {
     applyHotkey(state.settings.hotkey);
     buildTray();
     applyAutoLaunch(state.settings.autoLaunch);
+    registerItemHotkeys();
     hydrateIcons().catch(() => {});
     if (!process.argv.includes('--open-test')) startWindowHelper();
 

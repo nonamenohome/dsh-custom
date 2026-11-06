@@ -264,6 +264,10 @@
     $('queryField').hidden = !isChat;
     $('queryField').style.display = isChat ? '' : 'none';
     if (isChat) $('fQuery').value = draft.query || '';
+    $('platformField').hidden = !isChat;
+    $('platformField').style.display = isChat ? '' : 'none';
+    if (isChat) $('fPlatform').value = draft.platform || 'wechat';
+    $('fHotkey').value = draft.hotkey || '';
     $('fTarget').placeholder = isChat
       ? '留空即可（默认用微信 D:\\Weixin\\Weixin.exe）'
       : 'D:\\路径 或 https://example.com';
@@ -417,6 +421,8 @@
       target,
       args: argsInput,
       query: ($('fQuery') ? $('fQuery').value : '').trim(),
+      platform: ($('fPlatform') ? $('fPlatform').value : '') || undefined,
+      hotkey: ($('fHotkey') ? $('fHotkey').value : '').trim(),
       icon: draft.icon || undefined,
       children: isGroup ? (draft.children || []) : undefined,
     };
@@ -589,6 +595,29 @@
   });
 
   // 表单
+  $('fHotkey').addEventListener('keydown', (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    if (['Control', 'Shift', 'Alt', 'Meta'].includes(e.key)) return;
+    const parts = [];
+    if (e.ctrlKey) parts.push('Control');
+    if (e.altKey) parts.push('Alt');
+    if (e.shiftKey) parts.push('Shift');
+    if (e.metaKey) parts.push('Super');
+    if (!parts.length) { toast('至少要带一个修饰键（Ctrl / Alt / Shift）'); return; }
+    const key = e.key.length === 1 ? e.key.toUpperCase() : e.key;
+    parts.push(key);
+    const accel = parts.join('+');
+    $('fHotkey').value = accel;
+    if (S.editing) S.editing.hotkey = accel;
+    $('fHotkey').blur();
+  });
+
+  $('btnHotkeyClear').addEventListener('click', () => {
+    $('fHotkey').value = '';
+    if (S.editing) S.editing.hotkey = '';
+  });
+
   $('fName').addEventListener('input', (e) => {
     if (!S.editing) return;
     S.editing.name = e.target.value;

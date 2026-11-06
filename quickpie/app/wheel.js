@@ -608,6 +608,8 @@
 
   /* ---------------- 快速添加：Ctrl+V / 就地输入 ---------------- */
 
+  function fsExists() { return false; }   // 渲染层不碰文件系统；裸名字一律按会话处理
+
   let quickBox = null;
   let quickMode = 'auto';   // auto = 普通条目，chat = 微信会话
 
@@ -637,6 +639,13 @@
       <span class="quick-mode">条目</span>
       <input type="text" spellcheck="false" placeholder="${grp ? `添加到「${grp.name}」：回车确认，Tab 切成微信会话` : '粘贴名字或路径；Tab 切成微信会话，回车添加'}" />
       <kbd>Tab</kbd><kbd>Enter</kbd>`;
+    const modeChip = wrap.querySelector('.quick-mode');
+    const toggleMode = () => {
+      quickMode = quickMode === 'auto' ? 'chat' : 'auto';
+      modeChip.textContent = quickMode === 'chat' ? '微信会话' : '条目';
+      wrap.classList.toggle('is-chat', quickMode === 'chat');
+    };
+    modeChip.addEventListener('click', (e) => { e.stopPropagation(); toggleMode(); });
     const input = wrap.querySelector('input');
     input.value = initial;
     input.addEventListener('keydown', async (ev) => {
@@ -644,9 +653,7 @@
       if (ev.key === 'Escape') { closeQuickInput(); return; }
       if (ev.key === 'Tab') {
         ev.preventDefault();
-        quickMode = quickMode === 'auto' ? 'chat' : 'auto';
-        wrap.querySelector('.quick-mode').textContent = quickMode === 'chat' ? '微信会话' : '条目';
-        wrap.classList.toggle('is-chat', quickMode === 'chat');
+        toggleMode();
         return;
       }
       if (ev.key !== 'Enter') return;
@@ -671,9 +678,21 @@
         }
         return;
       }
-      const payload = list.map((target) => (quickMode === 'chat'
-        ? { type: 'chat', name: target, query: target, target: '' }
-        : { target }));
+      // 只有"真的像路径"才当条目：
+      //   盘符开头 / UNC / http(s):// / 含反斜杠 / 纯 ASCII 且带常见扩展名
+      // 群名里常见的「/」「.」不再误判（例如「产品/研发群」「群.2024」）
+      const looksLikePath = (t) =>
+        /^[a-zA-Z]:[\\/]/.test(t) ||
+        /^\\\\/.test(t) ||
+        /^[a-zA-Z][a-zA-Z0-9+.-]*:\/\//.test(t) ||
+        t.includes("\\") ||
+        (/^[\x20-\x7e]+$/.test(t) && /\.[a-z0-9]{2,5}$/i.test(t));
+      const payload = list.map((target) => {
+        const asChat = quickMode === 'chat' || (!looksLikePath(target) && !fsExists(target));
+        return asChat
+          ? { type: 'chat', name: target, query: target, target: '' }
+          : { target };
+      });
       const added = await api.addItems(payload);
       if (added && added.length) {
         await reload();
